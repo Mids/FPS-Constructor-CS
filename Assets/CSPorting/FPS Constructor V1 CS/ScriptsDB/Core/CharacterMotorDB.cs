@@ -237,7 +237,7 @@ namespace ooparts.fpsctorcs
 
 		public CharacterMotorDBMovingPlatform movingPlatform = new CharacterMotorDBMovingPlatform();
 
-		class CharacterMotorDBSliding
+		public class CharacterMotorDBSliding
 		{
 			// Does the character slide on too steep surfaces?
 			public bool enabled = true;
