@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class SmartCrossHair : MonoBehaviour
 	{
-
 		public float length1;
 		public float width1;
 		public bool scale = false;
@@ -84,7 +84,7 @@ namespace ooparts.fpsctorcs
 			if (!scl)
 			{
 				temp = 1;
-				temp2 = 1 / Screen.width;
+				temp2 = 1f / Screen.width;
 			}
 			else
 			{
@@ -116,15 +116,15 @@ namespace ooparts.fpsctorcs
 				if (hit.collider && hit.transform.gameObject.GetComponent<CrosshairColor>() != null && (hit.distance <= colorDist || colorDist < 0))
 				{
 					CrosshairColor colorScript = hit.transform.gameObject.GetComponent<CrosshairColor>();
-					if (colorScript.crosshairType == crosshairTypes.Friend)
+					if (colorScript.crosshairType == CrosshairColor.crosshairTypes.Friend)
 					{
 						ChangeColor("Friend");
 					}
-					else if (colorScript.crosshairType == crosshairTypes.Foe)
+					else if (colorScript.crosshairType == CrosshairColor.crosshairTypes.Foe)
 					{
 						ChangeColor("Foe");
 					}
-					else if (colorScript.crosshairType == crosshairTypes.Other)
+					else if (colorScript.crosshairType == CrosshairColor.crosshairTypes.Other)
 					{
 						ChangeColor("Other");
 					}
@@ -157,7 +157,6 @@ namespace ooparts.fpsctorcs
 				float distance1 = GunScript.crosshairSpread;
 				if (!(distance1 > (Screen.height / 2)) && (crosshair || debug || displayWhenAiming))
 				{
-
 					GUI.Box(new Rect((Screen.width - distance1) / 2 - length1, (Screen.height - width1) / 2, length1, width1), textu, lineStyle);
 					GUI.Box(new Rect((Screen.width + distance1) / 2, (Screen.height - width1) / 2, length1, width1), textu, lineStyle);
 
