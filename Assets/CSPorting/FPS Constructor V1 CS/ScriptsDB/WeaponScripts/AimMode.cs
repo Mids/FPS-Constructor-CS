@@ -5,7 +5,6 @@ namespace ooparts.fpsctorcs
 {
 	public class AimMode : MonoBehaviour
 	{
-
 		/////////////////////////// CHANGEABLE BY USER ///////////////////////////
 
 		Texture scopeTexture; //Currently used scope texture
@@ -14,7 +13,7 @@ namespace ooparts.fpsctorcs
 		float sprintAddStand = 1; //how quickly does sprint replenish when idle?
 		float sprintAddWalk = 0.3f; //how quickly does sprint replenish when moving?
 		float sprintMin = 1; //What is the minimum value ofsprint at which we can begin sprinting?
-		float recoverDelay = 0.7f;	//how much time after sprinting does it take to start recovering sprint?
+		float recoverDelay = 0.7f; //how much time after sprinting does it take to start recovering sprint?
 		float exhaustedDelay = 1; //how much time after sprinting to exhaustion does it take to start recovering sprint?
 		bool crosshairWhenAiming = false;
 
@@ -51,15 +50,11 @@ namespace ooparts.fpsctorcs
 		///////////////////////// END CHANGEABLE BY USER /////////////////////////
 
 
-
 		///////////////////////// Internal Variables /////////////////////////
 		/*These variables should not be modified directly, weither because it could compromise
 		the functioning of the package, or because changes will be overwritten or otherwise
 		ignored.
 		*/
-
-
-
 
 
 		Texture st169; //scope texture for 16 : 9 aspect ration
@@ -234,9 +229,8 @@ namespace ooparts.fpsctorcs
 
 			staticRate = aimRate;
 			//aiming
-			if (InputDB.GetButton("Aim") && canAim && PlayerWeapons.canAim && selected && !sprinting /*&& !GunScript1.sprint*/ && Avoidance.canAim)
+			if (InputDB.GetButton("Aim") && canAim && PlayerWeapons.canAim && selected && !sprinting /*&& !GunScript1.sprint*/&& Avoidance.canAim)
 			{
-
 				if (!aiming)
 				{
 					aimStartTime = Time.time + aimRate;
@@ -284,9 +278,8 @@ namespace ooparts.fpsctorcs
 
 				//sprinting
 			}
-			else if (InputDB.GetButton("Sprint") && !InputDB.GetButton("Aim") && canSprint && PlayerWeapons.canSprint && selected && !aiming && CM.grounded && !exhausted && (controller.velocity.magnitude > CM.movement.minSprintSpeed || (/*CM.prone || */CharacterMotorDB.crouching)))
+			else if (InputDB.GetButton("Sprint") && !InputDB.GetButton("Aim") && canSprint && PlayerWeapons.canSprint && selected && !aiming && CM.grounded && !exhausted && (controller.velocity.magnitude > CM.movement.minSprintSpeed || ( /*CM.prone || */CharacterMotorDB.crouching)))
 			{
-
 				sprintNum = Mathf.Clamp(sprintNum - Time.deltaTime, 0, sprintDuration);
 				aiming = false;
 				if (!sprinting)
@@ -315,7 +308,6 @@ namespace ooparts.fpsctorcs
 			}
 			else
 			{
-
 				if ((aiming || sprinting || switching))
 				{
 					if (sprinting)
@@ -414,7 +406,6 @@ namespace ooparts.fpsctorcs
 		void GunToRotation(Vector3 v3, float rate)
 		{
 			transform.localEulerAngles = new Vector3(Mathf.LerpAngle(startRotation.x, v3.x, Mathf.SmoothStep(0, 1, 1 - (aimStartTime - Time.time) / rate)), Mathf.LerpAngle(startRotation.y, v3.y, Mathf.SmoothStep(0, 1, 1 - (aimStartTime - Time.time) / rate)), Mathf.LerpAngle(startRotation.z, v3.z, Mathf.SmoothStep(0, 1, 1 - (aimStartTime - Time.time) / rate)));
-
 		}
 	}
 }
