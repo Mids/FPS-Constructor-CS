@@ -38,10 +38,10 @@ namespace ooparts.fpsctorcs
 		public int clips = 20; //Number of spare clips (reloads) left
 		public int maxClips = 20; //Maximum number of clips
 		public bool infiniteAmmo = false; //Does this gun deplete clips whe reoading?
-		public enum ammoTypes 
-		{ 
-			byClip, 
-			byBullet 
+		public enum ammoTypes
+		{
+			byClip,
+			byBullet
 		}
 		public ammoTypes ammoType = ammoTypes.byClip; //Does this weapon conserve ammo when reloading? (e.g. if you reload after shooting one bullet, does it use a whole clip)
 
@@ -199,7 +199,7 @@ namespace ooparts.fpsctorcs
 		private bool progressiveReloading = false;
 		public bool inDelay = false;
 		private int m_LastFrameShot = -1;
-		public bool reloading = false;
+		public static bool reloading = false;
 		public float nextFireTime = 0.0f;
 		public static bool takingOut = false;
 		public static bool puttingAway = false;
@@ -252,12 +252,12 @@ namespace ooparts.fpsctorcs
 		public bool chargeLocked = false;
 
 		//Gun Types
-		public enum gunTypes 
+		public enum gunTypes
 		{
 			hitscan,
 			launcher,
 			melee,
-			spray 
+			spray
 		}
 		public gunTypes gunType = gunTypes.hitscan;
 
@@ -1288,11 +1288,11 @@ namespace ooparts.fpsctorcs
 			reloading = true;
 			if (secondaryWeapon != null)
 			{
-				secondaryWeapon.reloading = true;
+				GunScript.reloading = true;
 			}
 			else if (!isPrimaryWeapon)
 			{
-				primaryWeapon.reloading = true;
+				GunScript.reloading = true;
 			}
 			bool tempEmpty;
 			yield return new WaitForSeconds(waitforReload);
@@ -1346,11 +1346,11 @@ namespace ooparts.fpsctorcs
 			reloading = false;
 			if (secondaryWeapon != null)
 			{
-				secondaryWeapon.reloading = false;
+				GunScript.reloading = false;
 			}
 			else if (!isPrimaryWeapon)
 			{
-				primaryWeapon.reloading = false;
+				GunScript.reloading = false;
 			}
 			// We have a clip left reload
 			if (ammoType == ammoTypes.byClip)
@@ -1406,11 +1406,11 @@ namespace ooparts.fpsctorcs
 			reloading = false;
 			if (secondaryWeapon != null)
 			{
-				secondaryWeapon.reloading = false;
+				GunScript.reloading = false;
 			}
 			else if (!isPrimaryWeapon)
 			{
-				primaryWeapon.reloading = false;
+				GunScript.reloading = false;
 			}
 			progressiveReloading = false;
 			aim1.canSprint = true;
@@ -1447,11 +1447,11 @@ namespace ooparts.fpsctorcs
 			reloading = true;
 			if (secondaryWeapon != null && secondaryFire && !secondaryWeapon.secondaryInterrupt)
 			{
-				secondaryWeapon.reloading = true;
+				GunScript.reloading = true;
 			}
 			else if (secondaryFire && !secondaryInterrupt && !isPrimaryWeapon)
 			{
-				primaryWeapon.reloading = false;
+				GunScript.reloading = false;
 			}
 		}
 
@@ -1500,7 +1500,7 @@ namespace ooparts.fpsctorcs
 				}
 
 				wepDis.enabled = true;
-				aim1.canSwitchWeaponAim = false;
+				AimMode.canSwitchWeaponAim = false;
 				BroadcastMessage("TakeOutAnim", takeOutTime, SendMessageOptions.DontRequireReceiver);
 				mainCam.SendMessage("TakeOutAnim", takeOutTime, SendMessageOptions.DontRequireReceiver);
 				takingOut = true;
@@ -1514,7 +1514,7 @@ namespace ooparts.fpsctorcs
 				SmartCrosshair.crosshair = true;
 				gunActive = true;
 				takingOut = false;
-				aim1.canSwitchWeaponAim = true;
+				AimMode.canSwitchWeaponAim = true;
 				ammo.enabled = true;
 				sprint.enabled = true;
 				wepDis.Select();
@@ -1561,7 +1561,7 @@ namespace ooparts.fpsctorcs
 			ammo.enabled = false;
 			sprint.enabled = false;
 			wepDis.enabled = false;
-			aim1.canSwitchWeaponAim = false;
+			AimMode.canSwitchWeaponAim = false;
 			BroadcastMessage("PutAwayAnim", putAwayTime, SendMessageOptions.DontRequireReceiver);
 			mainCam.SendMessage("PutAwayAnim", putAwayTime, SendMessageOptions.DontRequireReceiver);
 			gunActive = false;
