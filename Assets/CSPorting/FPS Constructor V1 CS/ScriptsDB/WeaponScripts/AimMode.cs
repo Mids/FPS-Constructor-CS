@@ -63,18 +63,18 @@ namespace ooparts.fpsctorcs
 		Texture st43; // 4 : 3
 		Texture st54; // 5 : 4
 		private GameObject player; //Player object
-		bool scoped = false; //Does this weapon use a scope?
+		public bool scoped = false; //Does this weapon use a scope?
 		private float scopeTime; //Time when we should be in scope
-		bool sightsZoom = false; //Does this weapon zoom when aiming? (Not scoped)
-		bool inScope = false; //Are we currently scoped?
-		bool aim = true; //Does the primary weapon aim?
-		bool secondaryAim = true; //Does the Secondaey weapon Aim?
-		bool canAim; //does the weapon currently aim?
-		bool aiming; //are we currently aiming?
+		public bool sightsZoom = false; //Does this weapon zoom when aiming? (Not scoped)
+		public bool inScope = false; //Are we currently scoped?
+		public bool aim = true; //Does the primary weapon aim?
+		public bool secondaryAim = true; //Does the Secondaey weapon Aim?
+		public bool canAim; //does the weapon currently aim?
+		public bool aiming; //are we currently aiming?
 
-		static bool sprintingPublic; //are we currently sprinting?
-		bool sprinting;
-		bool canSprint; //can the player sprint currently?
+		public static bool sprintingPublic; //are we currently sprinting?
+		public bool sprinting;
+		public bool canSprint; //can the player sprint currently?
 
 		private Vector3 deltaAngle;
 		private bool selected = false;
@@ -98,7 +98,7 @@ namespace ooparts.fpsctorcs
 		float rotationSpeed = 180;
 		CharacterController controller;
 		private bool zoomed = false;
-		static bool canSwitchWeaponAim = true;
+		public bool canSwitchWeaponAim = true;
 		static bool staticAiming = false;
 		bool hasSecondary = true;
 		GunScript GunScript1;
