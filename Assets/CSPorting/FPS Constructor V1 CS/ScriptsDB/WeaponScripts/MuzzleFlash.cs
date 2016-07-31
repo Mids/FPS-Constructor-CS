@@ -7,7 +7,7 @@ namespace ooparts.fpsctorcs
 	{
 		public bool isPrimary = true;
 
-		public void MuzzleFlash(bool temp)
+		public void MuzzleFlash_(bool temp)
 		{
 			BroadcastMessage("Activate", SendMessageOptions.DontRequireReceiver);
 			if (temp != isPrimary)
