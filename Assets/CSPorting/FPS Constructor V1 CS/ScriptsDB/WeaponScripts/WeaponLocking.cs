@@ -6,14 +6,14 @@ namespace ooparts.fpsctorcs
 {
 	public class WeaponLocking : MonoBehaviour
 	{
-		bool isLocked = false;
+		public bool isLocked = false;
 
-		void Lock()
+		public void Lock()
 		{
 			isLocked = true;
 		}
 
-		void Unlock()
+		public void Unlock()
 		{
 			isLocked = false;
 		}
