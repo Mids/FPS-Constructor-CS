@@ -5,67 +5,71 @@ namespace ooparts.fpsctorcs
 {
 	public class GunScript : MonoBehaviour
 	{
-		float kickbackAngle; //Vertical kickback per shot (degrees)
-		float xKickbackFactor = .5f; //Horizontal kickback per shot (percent of vertical)
-		float maxKickback = 15; //Maximum vertical kickback (degrees)
-		float kickbackAim;
-		float crouchKickbackMod = .6f;
-		float proneKickbackMod = .35f;
-		float moveKickbackMod = 1.3f;
+		public float kickbackAngle; //Vertical kickback per shot (degrees)
+		public float xKickbackFactor = .5f; //Horizontal kickback per shot (percent of vertical)
+		public float maxKickback = 15; //Maximum vertical kickback (degrees)
+		public float kickbackAim;
+		public float crouchKickbackMod = .6f;
+		public float proneKickbackMod = .35f;
+		public float moveKickbackMod = 1.3f;
 
 		private float curKickback;
-		float recoilDelay = .11f; //Delay between stopping firing and recoil decreasing
+		public float recoilDelay = .11f; //Delay between stopping firing and recoil decreasing
 
 		/*Spread variables: Spread (between 0 and 1) determines the accuracy of the weapon.
 		A spread of 0 means that the weapon will fire exactly towards the crosshair, and
 		a spread of 1 means that it will fire anywhere within 90 degrees of the crosshair.
 		*/
-		float standardSpread = .1f; //default spread of this weapon
-		float maxSpread = .25f; //Maximum spread of this weapon
-		float crouchSpreadModifier = .7f; //When crouching, spread is multiplied by this
-		float proneSpreadModifier = .4f; //When prone, spread is multiplied by this
-		float moveSpreadModifier = 1.5f; //When walking, spread is multiplied by this
-		float standardSpreadRate = .05f; //Standard increase in spread per shot
-		float aimSpreadRate = .01f; //Increase in spread per shot when aiming
-		float aimSpread = .01f; //Default spread when aiming
-		float spDecRate = .05f; //Speed at which spread decreases when not firing
+		public float standardSpread = .1f; //default spread of this weapon
+		public float maxSpread = .25f; //Maximum spread of this weapon
+		public float crouchSpreadModifier = .7f; //When crouching, spread is multiplied by this
+		public float proneSpreadModifier = .4f; //When prone, spread is multiplied by this
+		public float moveSpreadModifier = 1.5f; //When walking, spread is multiplied by this
+		public float standardSpreadRate = .05f; //Standard increase in spread per shot
+		public float aimSpreadRate = .01f; //Increase in spread per shot when aiming
+		public float aimSpread = .01f; //Default spread when aiming
+		public float spDecRate = .05f; //Speed at which spread decreases when not firing
 
 
 		////////// Ammo variables //////////
-		float ammoLeft = 0; //Ammo left in the curent clip (ammo before next reload)
-		int ammoPerClip = 40; //Shots per clip
-		int ammoPerShot = 1; //Ammo used per shot
-		int clips = 20; //Number of spare clips (reloads) left
-		int maxClips = 20; //Maximum number of clips
-		bool infiniteAmmo = false; //Does this gun deplete clips whe reoading?
-		enum ammoTypes { byClip, byBullet }
-		ammoTypes ammoType = ammoTypes.byClip; //Does this weapon conserve ammo when reloading? (e.g. if you reload after shooting one bullet, does it use a whole clip)
+		public float ammoLeft = 0; //Ammo left in the curent clip (ammo before next reload)
+		public int ammoPerClip = 40; //Shots per clip
+		public int ammoPerShot = 1; //Ammo used per shot
+		public int clips = 20; //Number of spare clips (reloads) left
+		public int maxClips = 20; //Maximum number of clips
+		public bool infiniteAmmo = false; //Does this gun deplete clips whe reoading?
+		public enum ammoTypes 
+		{ 
+			byClip, 
+			byBullet 
+		}
+		public ammoTypes ammoType = ammoTypes.byClip; //Does this weapon conserve ammo when reloading? (e.g. if you reload after shooting one bullet, does it use a whole clip)
 
 
 		////////// Fire Variables //////////
-		AudioClip fireSound; //Sound that plays when firing
-		float fireVolume = 1;
-		float firePitch = 1;//Pitch of fire sound
-		float fireRate = 0.05f; //Time in seconds between shots
-		bool autoFire; //Is this weapon automatic (can you hold down the fre button?)
-		bool fireAnim = false; //Does this weapon's fire animation scale to fit the fire rate (generally used for non-automatic weapons)
-		float delay = 0; //Delay between hitting fire button and actually firing (can be used to sync firing with animation)
-		AudioClip emptySound; //Sound that plays when firing
-		float emptyVolume = 1;
-		float emptyPitch = 1;//Pitch of fire sound
+		public AudioClip fireSound; //Sound that plays when firing
+		public float fireVolume = 1;
+		public float firePitch = 1;//Pitch of fire sound
+		public float fireRate = 0.05f; //Time in seconds between shots
+		public bool autoFire; //Is this weapon automatic (can you hold down the fre button?)
+		public bool fireAnim = false; //Does this weapon's fire animation scale to fit the fire rate (generally used for non-automatic weapons)
+		public float delay = 0; //Delay between hitting fire button and actually firing (can be used to sync firing with animation)
+		public AudioClip emptySound; //Sound that plays when firing
+		public float emptyVolume = 1;
+		public float emptyPitch = 1;//Pitch of fire sound
 
 		//Burst fire
 		//note: burst fire doesn't work well with automatic weapons
-		bool burstFire = false; //does this wepon fire in bursts
-		int burstCount = 1; //shots per burst
-		float burstTime = .5f; //time to fire full burst
+		public bool burstFire = false; //does this wepon fire in bursts
+		public int burstCount = 1; //shots per burst
+		public float burstTime = .5f; //time to fire full burst
 
 
 		////////// Reloading variables //////////
-		float reloadTime = 0.5f;
-		float emptyReloadTime = .4f;
-		bool addOneBullet = false;
-		float waitforReload = 0.00f;
+		public float reloadTime = 0.5f;
+		public float emptyReloadTime = .4f;
+		public bool addOneBullet = false;
+		public float waitforReload = 0.00f;
 
 		/*Progressive Reload is a different kind of reloading where the reload is broken into stages.
 		The first stage initializes the animation to get to the second stage. The second stage represents
@@ -73,110 +77,109 @@ namespace ooparts.fpsctorcs
 		interrupted. Then the third stage returns the weapon to its standrad position. This is useful
 		for weapons like shotguns that reload by shells.
 		*/
-		bool progressiveReload = false; //Does this weapon use progressive reload?
-		bool progressiveReset = false; //Does this weapon's ammo reset to 0 when starting a reload? 
+		public bool progressiveReload = false; //Does this weapon use progressive reload?
+		public bool progressiveReset = false; //Does this weapon's ammo reset to 0 when starting a reload? 
 		//(e.g. a revolver where the shells are discarded and replaced)
-		float reloadInTime = 0.5f; //time in seconds for the first stage
-		float reloadOutTime = 0.5f; //time in seconds for the third stage
+		public float reloadInTime = 0.5f; //time in seconds for the first stage
+		public float reloadOutTime = 0.5f; //time in seconds for the third stage
 		//the time for the second stage is just reloadTime
 
 
 		////////// Gun-Specific Variables //////////
-		float range = 100.0f; //Range of bullet raycast in meters
-		float force = 10.0f; //Force of bullet
-		float damage = 5.0f; //Damage per bullet
-		int shotCount = 6; //Bullets per shot
-		int penetrateVal = 1; //penetration level of bullet
+		public float range = 100.0f; //Range of bullet raycast in meters
+		public float force = 10.0f; //Force of bullet
+		public float damage = 5.0f; //Damage per bullet
+		public int shotCount = 6; //Bullets per shot
+		public int penetrateVal = 1; //penetration level of bullet
 
 		/* Damage falloff allows raycast weapons to do less damage at long distances
 		*/
-		bool hasFalloff = false; //Does this weapon use damage falloff?
-		float minFalloffDist = 10; //Distance at which falloff begins to take effect
-		float maxFalloffDist = 100; //Distance at which falloff stops (minumum damage)
-		float falloffCoefficient = 1; //Coefficient for multiplying damage
-		float falloffDistanceScale = 4; //Scaling value to change speed of falloff
+		public bool hasFalloff = false; //Does this weapon use damage falloff?
+		public float minFalloffDist = 10; //Distance at which falloff begins to take effect
+		public float maxFalloffDist = 100; //Distance at which falloff stops (minumum damage)
+		public float falloffCoefficient = 1; //Coefficient for multiplying damage
+		public float falloffDistanceScale = 4; //Scaling value to change speed of falloff
 
 
 		////////// Launcher-Specific Variables //////////
-		Rigidbody projectile; //The object to launch. This can be anything, as long as it has a rigidbody.
-		float initialSpeed = 20.0f; //Initial speed of projectile, applied  forward
-		int projectileCount = 1; //Number of projectiles fired
-		GameObject launchPosition; //GameObject whose position the projectile is fired from (place this at the end of the weapon's barrel, generally)
+		public Rigidbody projectile; //The object to launch. This can be anything, as long as it has a rigidbody.
+		public float initialSpeed = 20.0f; //Initial speed of projectile, applied  forward
+		public int projectileCount = 1; //Number of projectiles fired
+		public GameObject launchPosition; //GameObject whose position the projectile is fired from (place this at the end of the weapon's barrel, generally)
 
 
 		////////// Tracer related variables //////////
 		/* Tracers are done using particle emitters.
 		*/
-		GameObject tracer; //Tracer object. Must have a particle emitter attached
-		int traceEvery = 0; //Activate a tracer evey x shots.
-		float simulateTime = .02f; //How long to simulate tracer before it appears
-		float minDistForTracer = 2; //This isn't exposed, but can be tweaked if needed
+		public GameObject tracer; //Tracer object. Must have a particle emitter attached
+		public int traceEvery = 0; //Activate a tracer evey x shots.
+		public float simulateTime = .02f; //How long to simulate tracer before it appears
+		public float minDistForTracer = 2; //This isn't exposed, but can be tweaked if needed
 
 
 		////////// Sway //////////
-		bool sway; //Does the weapon sway?
-		Vector2 moveSwayRate = new Vector2(2.5f, 5); //How fast does the weapon sway when walking? (xy)
-		Vector2 moveSwayAmplitude = new Vector2(.04f, .01f); //How much does the weapon sway when walking? (xy)
-		Vector2 runSwayRate = new Vector2(4.5f, .9f); //How fast does the weapon sway when sprinting? (xy)
-		Vector2 runAmplitude = new Vector2(.04f, .04f); //How much does the weapon sway when sprinting? (xy)
-		Vector2 idleSwayRate = new Vector2(2, 1); //How fast does the weapon sway when standing? (xy)
-		Vector2 idleAmplitude = new Vector2(.002f, .001f); //How much does the weapon sway when standing? (xy)
+		public bool sway; //Does the weapon sway?
+		public Vector2 moveSwayRate = new Vector2(2.5f, 5); //How fast does the weapon sway when walking? (xy)
+		public Vector2 moveSwayAmplitude = new Vector2(.04f, .01f); //How much does the weapon sway when walking? (xy)
+		public Vector2 runSwayRate = new Vector2(4.5f, .9f); //How fast does the weapon sway when sprinting? (xy)
+		public Vector2 runAmplitude = new Vector2(.04f, .04f); //How much does the weapon sway when sprinting? (xy)
+		public Vector2 idleSwayRate = new Vector2(2, 1); //How fast does the weapon sway when standing? (xy)
+		public Vector2 idleAmplitude = new Vector2(.002f, .001f); //How much does the weapon sway when standing? (xy)
 
 
 		////////// Secondary Weapons //////////
-		GunScript secondaryWeapon; //Gunscript of secondary weapon (additional weapon script on this object)
-		bool secondaryInterrupt = false; //Can primary and secondary weapon interrupt each other's actions
-		bool secondaryFire = false; //Is the secondary weapon fired with Mouse2?
-		float enterSecondaryTime = .5f; //How long does it take to switch to secondary (animation)?
-		float exitSecondaryTime = .5f; //How long does it take to switch from secondary (animation)?
+		public GunScript secondaryWeapon; //Gunscript of secondary weapon (additional weapon script on this object)
+		public bool secondaryInterrupt = false; //Can primary and secondary weapon interrupt each other's actions
+		public bool secondaryFire = false; //Is the secondary weapon fired with Mouse2?
+		public float enterSecondaryTime = .5f; //How long does it take to switch to secondary (animation)?
+		public float exitSecondaryTime = .5f; //How long does it take to switch from secondary (animation)?
 
 
 		////////// Charge weapon variables //////////
-		float minCharge = 0; //Minimum charge value at ahich the weapon can fire
-		float maxCharge = 10; // Maximum charge value the weapon can have
-		float chargeLevel = 0; //current charge level of the weapon
-		bool forceFire = false; //Does this weapon have to fire when it hits max charge?
-		AudioClip chargeLoop; //Sound to play when charging
-		bool chargeAuto = false; //Does the weapon automatically start charging again after a forced release?
+		public float minCharge = 0; //Minimum charge value at ahich the weapon can fire
+		public float maxCharge = 10; // Maximum charge value the weapon can have
+		public float chargeLevel = 0; //current charge level of the weapon
+		public bool forceFire = false; //Does this weapon have to fire when it hits max charge?
+		public AudioClip chargeLoop; //Sound to play when charging
+		public bool chargeAuto = false; //Does the weapon automatically start charging again after a forced release?
 
 
 		//Specifically for hitscan charge weapons
-		float chargeCoefficient = 1.1f; //Damage multiplier as charge increases
-		float additionalAmmoPerCharge = 0; //Ammo change as charge increases (add this per 1 charge level)
-
+		public float chargeCoefficient = 1.1f; //Damage multiplier as charge increases
+		public float additionalAmmoPerCharge = 0; //Ammo change as charge increases (add this per 1 charge level)
 
 		//////////Other variables//////////
-		float idleTime = 0; //Time in seconds that the player has been idle
-		float timeToIdle = 7; //Time in seconds of being idle which will cause the idle animation to play
-		float takeOutTime = .6f; //Time to take out (switch to) weapon
-		float putAwayTime = .6f; //Time to put away (switch from) weapon 
+		public float idleTime = 0; //Time in seconds that the player has been idle
+		public float timeToIdle = 7; //Time in seconds of being idle which will cause the idle animation to play
+		public float takeOutTime = .6f; //Time to take out (switch to) weapon
+		public float putAwayTime = .6f; //Time to put away (switch from) weapon 
 
 		//////////Z KickBack//////////
-		bool useZKickBack = true; //Does this weapon use z kickback?
-		float kickBackZ = 2; //Rate of z kickback when firing
-		float zRetRate = 1; //rate of return from z when not firing
-		float maxZ = .3f; //maximum z kickback
+		public bool useZKickBack = true; //Does this weapon use z kickback?
+		public float kickBackZ = 2; //Rate of z kickback when firing
+		public float zRetRate = 1; //rate of return from z when not firing
+		public float maxZ = .3f; //maximum z kickback
 
 		//////////Avoidance//////////
 		//Avoidance is by default handled globall by the Avoidance Component. This just overrides its values for this weapon.
-		bool overrideAvoidance = false; //Does this weapon override global object avoidance values
-		bool avoids = true;
-		Vector3 rot;
-		Vector3 pos;
-		float dist = 2;
-		float minDist = 1.5f;
+		public bool overrideAvoidance = false; //Does this weapon override global object avoidance values
+		public bool avoids = true;
+		public Vector3 rot;
+		public Vector3 pos;
+		public float dist = 2;
+		public float minDist = 1.5f;
 
 		//Shell Ejection
-		bool shellEjection = false; //Does this weapon use shell ejection?
-		GameObject ejectorPosition; //If it does, this gameobject provides the position where shells are instantiated
-		float ejectDelay = 0;
-		GameObject shell; //The shell prefab to instantiate
+		public bool shellEjection = false; //Does this weapon use shell ejection?
+		public GameObject ejectorPosition; //If it does, this gameobject provides the position where shells are instantiated
+		public float ejectDelay = 0;
+		public GameObject shell; //The shell prefab to instantiate
 
 
 		//Custom crosshair variables
-		bool scale = false; //Does the crosshair scale with accuracy?
-		GameObject crosshairObj; //Crosshair object to use
-		float crosshairSize; //Default scale of the crosshair object
+		public bool scale = false; //Does the crosshair scale with accuracy?
+		public GameObject crosshairObj; //Crosshair object to use
+		public float crosshairSize; //Default scale of the crosshair object
 
 		///////////////////////// END CHANGEABLE BY USER /////////////////////////
 
@@ -194,39 +197,39 @@ namespace ooparts.fpsctorcs
 		//Status
 		private bool interruptPutAway = false;
 		private bool progressiveReloading = false;
-		bool inDelay = false;
+		public bool inDelay = false;
 		private int m_LastFrameShot = -1;
 		public bool reloading = false;
-		float nextFireTime = 0.0f;
-		static bool takingOut = false;
-		static bool puttingAway = false;
+		public float nextFireTime = 0.0f;
+		public static bool takingOut = false;
+		public static bool puttingAway = false;
 
-		bool secondaryActive = false;
-		static float crosshairSpread = 0;
+		public bool secondaryActive = false;
+		public static float crosshairSpread = 0;
 		private float shotSpread;
 		private float actualSpread;
 		private float spreadRate = .05f;
 		public bool isPrimaryWeapon = true;
-		bool aim = false;
-		bool aim2 = false;
+		public bool aim = false;
+		public bool aim2 = false;
 		private float pReloadTime = 0;
 		private bool stopReload = false;
 		private Vector3 startPosition;
-		bool gunDisplayed;
+		public bool gunDisplayed;
 		private float totalKickBack; //How far have we kicked back?
 
 		//Components
-		AmmoDisplay ammo;
-		SprintDisplay sprint;
-		WeaponDisplay wepDis;
-		static GameObject mainCam;
-		static GameObject weaponCam;
+		public AmmoDisplay ammo;
+		public SprintDisplay sprint;
+		public WeaponDisplay wepDis;
+		public static GameObject mainCam;
+		public static GameObject weaponCam;
 		private GunScript primaryWeapon;
 		private GameObject player;
-		AimMode aim1;
-		MouseLookDBJS mouseY;
-		MouseLookDBJS mouseX;
-		bool reloadCancel = false;
+		public AimMode aim1;
+		public MouseLookDBJS mouseY;
+		public MouseLookDBJS mouseX;
+		public bool reloadCancel = false;
 
 
 		////////// Spray //////////
@@ -234,54 +237,60 @@ namespace ooparts.fpsctorcs
 		charge weapon.
 		*/
 		private float tempAmmo = 1;
-		bool sprayOn = false;
-		GameObject sprayObj;
-		SprayScript sprayScript;
-		float deltaTimeCoefficient = 1;
-		float forceFalloffCoefficient = .99f;
-		AudioClip loopSound;
-		AudioClip releaseSound;
-		float ammoPerSecond;
+		public bool sprayOn = false;
+		public GameObject sprayObj;
+		public SprayScript sprayScript;
+		public float deltaTimeCoefficient = 1;
+		public float forceFalloffCoefficient = .99f;
+		public AudioClip loopSound;
+		public AudioClip releaseSound;
+		public float ammoPerSecond;
 
 		////////// Charge weapon variables //////////
-		bool chargeWeapon = false; //Is this weapon a charge weapon?
-		bool chargeReleased = false;
-		bool chargeLocked = false;
+		public bool chargeWeapon = false; //Is this weapon a charge weapon?
+		public bool chargeReleased = false;
+		public bool chargeLocked = false;
 
 		//Gun Types
-		enum gunTypes { hitscan, launcher, melee, spray }
-		gunTypes gunType = gunTypes.hitscan;
+		public enum gunTypes 
+		{
+			hitscan,
+			launcher,
+			melee,
+			spray 
+		}
+		public gunTypes gunType = gunTypes.hitscan;
 
 		//Melee
-		bool hitBox = false;
+		public bool hitBox = false;
 
 		//Tracer related variables
 		private int shotCountTracer = 0;
 
 		//Ammo Sharing
-		bool sharesAmmo = false;
-		bool shareLoadedAmmo = false;
-		int ammoSetUsed = 0;
-		GameObject managerObject;
-		AmmoManager ammoManagerScript;
+		public bool sharesAmmo = false;
+		public bool shareLoadedAmmo = false;
+		public int ammoSetUsed = 0;
+		public GameObject managerObject;
+		public AmmoManager ammoManagerScript;
 
 		//Effects
-		EffectsManager effectsManager;
-		CharacterMotorDB CM;
+		public EffectsManager effectsManager;
+		public CharacterMotorDB CM;
 
 		//Inspector only variables
-		bool shotPropertiesFoldout = false;
-		bool firePropertiesFoldout = false;
-		bool accuracyFoldout = false;
-		bool altFireFoldout = false;
-		bool ammoReloadFoldout = false;
-		bool audioVisualFoldout = false;
+		public bool shotPropertiesFoldout = false;
+		public bool firePropertiesFoldout = false;
+		public bool accuracyFoldout = false;
+		public bool altFireFoldout = false;
+		public bool ammoReloadFoldout = false;
+		public bool audioVisualFoldout = false;
 
 		//Sway (Internal)
-		float swayStartTime = 0;
-		Vector2 swayRate;
-		Vector2 swayAmplitude;
-		bool overwriteSway = false;
+		public float swayStartTime = 0;
+		public Vector2 swayRate;
+		public Vector2 swayAmplitude;
+		public bool overwriteSway = false;
 
 		private bool airborne = false;
 
@@ -376,7 +385,7 @@ namespace ooparts.fpsctorcs
 			swayAmplitude = moveSwayAmplitude;
 		}
 
-		void Aiming()
+		public void Aiming()
 		{
 			idleTime = 0;
 			shotSpread = aimSpread;
@@ -392,7 +401,7 @@ namespace ooparts.fpsctorcs
 				Airborne();
 		}
 
-		void Crouching()
+		public void Crouching()
 		{
 			if (aim1.aiming)
 			{
@@ -409,7 +418,7 @@ namespace ooparts.fpsctorcs
 
 		}
 
-		void Prone()
+		public void Prone()
 		{
 			if (aim1.aiming)
 			{
@@ -425,7 +434,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Walking()
+		public void Walking()
 		{
 			if (aim1.aiming)
 			{
@@ -441,7 +450,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void StopWalking()
+		public void StopWalking()
 		{
 			if (airborne)
 				return;
@@ -457,7 +466,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Landed()
+		public void Landed()
 		{
 			airborne = false;
 			spreadRate = standardSpreadRate;
@@ -472,7 +481,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Airborne()
+		public void Airborne()
 		{
 			airborne = true;
 			if (aim1.aiming)
@@ -489,7 +498,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void StopAiming()
+		public void StopAiming()
 		{
 			idleTime = 0;
 			shotSpread = standardSpread;
@@ -504,7 +513,7 @@ namespace ooparts.fpsctorcs
 			if (!CM.grounded)
 				Airborne();
 		}
-		void Cooldown()
+		public void Cooldown()
 		{
 			if (!gunActive)
 				return;
@@ -527,7 +536,7 @@ namespace ooparts.fpsctorcs
 			shotSpread = Mathf.Clamp(shotSpread - spDecRate * Time.deltaTime, targ, maxSpread);
 		}
 
-		void Update()
+		public void Update()
 		{
 			if (progressiveReloading)
 			{
@@ -594,7 +603,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void LateUpdate()
+		public void LateUpdate()
 		{
 
 			if (InputDB.GetButtonDown("Fire2") && secondaryWeapon != null && !secondaryFire && !aim1.aiming && !Avoidance.collided)
@@ -671,7 +680,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void FireAlt()
+		public void FireAlt()
 		{
 			if (!isPrimaryWeapon)
 			{
@@ -682,7 +691,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void AlignToSharedAmmo()
+		public void AlignToSharedAmmo()
 		{
 			if (sharesAmmo)
 			{
@@ -694,7 +703,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void ApplyToSharedAmmo()
+		public void ApplyToSharedAmmo()
 		{
 			if (sharesAmmo)
 			{
@@ -704,7 +713,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Fire2()
+		public void Fire2()
 		{
 			if (isPrimaryWeapon && secondaryWeapon != null && gunActive && secondaryFire)
 			{
@@ -929,7 +938,7 @@ namespace ooparts.fpsctorcs
 
 
 		//Kickback function which moves the gun transform backwards when called
-		void KickBackZ()
+		public void KickBackZ()
 		{
 			if (!useZKickBack)
 				return;
@@ -940,7 +949,7 @@ namespace ooparts.fpsctorcs
 		}
 
 		//Reset Kickback function which moves the gun transform forwards when called
-		void ReturnKickBackZ()
+		public void ReturnKickBackZ()
 		{
 			float amt = Time.deltaTime * zRetRate;
 			amt = Mathf.Min(amt, totalKickBack);
@@ -1005,7 +1014,7 @@ namespace ooparts.fpsctorcs
 			FireEffects();
 		}
 
-		void FireOneProjectile()
+		public void FireOneProjectile()
 		{
 			Vector3 direction = SprayDirection();
 			Quaternion convert = Quaternion.LookRotation(direction);
@@ -1032,7 +1041,7 @@ namespace ooparts.fpsctorcs
 			Kickback();
 		}
 
-		void FireOneBullet()
+		public void FireOneBullet()
 		{
 			bool penetrate = true;
 			int pVal = penetrateVal;
@@ -1149,7 +1158,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void FireSpray()
+		public void FireSpray()
 		{
 			if (!sprayOn)
 			{
@@ -1179,7 +1188,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void ReleaseFire(int key)
+		public void ReleaseFire(int key)
 		{
 			if (GetComponent<AudioSource>())
 			{
@@ -1218,12 +1227,12 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		int Comparison(RaycastHit x, RaycastHit y)
+		public int Comparison(RaycastHit x, RaycastHit y)
 		{
 			return x.distance > y.distance ? 1 : -1;
 		}
 
-		Vector3 SprayDirection()
+		public Vector3 SprayDirection()
 		{
 			float vx = (1 - 2 * Random.value) * actualSpread;
 			float vy = (1 - 2 * Random.value) * actualSpread;
@@ -1231,7 +1240,7 @@ namespace ooparts.fpsctorcs
 			return weaponCam.transform.TransformDirection(new Vector3(vx, vy, vz));
 		}
 
-		Vector3 SprayDirection(Vector3 dir)
+		public Vector3 SprayDirection(Vector3 dir)
 		{
 			float vx = (1 - 2 * Random.value) * actualSpread;
 			float vy = (1 - 2 * Random.value) * actualSpread;
@@ -1392,7 +1401,7 @@ namespace ooparts.fpsctorcs
 			PlayerWeapons.autoFire = autoFire;
 		}
 
-		void StopReloading()
+		public void StopReloading()
 		{
 			reloading = false;
 			if (secondaryWeapon != null)
@@ -1571,7 +1580,7 @@ namespace ooparts.fpsctorcs
 				go.enabled = false;
 			}
 		}
-		void DeselectInstant()
+		public void DeselectInstant()
 		{
 			if (GetComponent<AudioSource>())
 			{
@@ -1599,7 +1608,7 @@ namespace ooparts.fpsctorcs
 		}
 
 
-		void EditorSelect()
+		public void EditorSelect()
 		{
 			gunActive = true;
 			Renderer[] gos = GetComponentsInChildren<Renderer>();
@@ -1609,7 +1618,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void EditorDeselect()
+		public void EditorDeselect()
 		{
 			gunActive = false;
 			Renderer[] gos = GetComponentsInChildren<Renderer>();
@@ -1619,7 +1628,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void WalkSway()
+		public void WalkSway()
 		{
 			int speed = (int)CM.GetComponent<CharacterController>().velocity.magnitude;
 			if (speed < .2)
@@ -1658,7 +1667,7 @@ namespace ooparts.fpsctorcs
 			transform.localEulerAngles = new Vector3(Mathf.LerpAngle(transform.localEulerAngles.x, -curVect.y, Time.deltaTime * swayRate.y * s), transform.localEulerAngles.y, Mathf.LerpAngle(transform.localEulerAngles.z, -curVect.x, Time.deltaTime * s));
 		}
 
-		void ResetPosition()
+		public void ResetPosition()
 		{
 			if (((transform.localPosition == startPosition) && !sway) || !gunActive)
 			{
@@ -1688,7 +1697,7 @@ namespace ooparts.fpsctorcs
 
 		}
 
-		void Sprinting()
+		public void Sprinting()
 		{
 			if (!gunActive)
 				return;
@@ -1705,7 +1714,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void NormalSpeed()
+		public void NormalSpeed()
 		{
 			if (airborne)
 				return;
@@ -1737,7 +1746,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Kickback()
+		public void Kickback()
 		{
 			mouseY.offsetY = curKickback;
 			mouseY.maxKickback = maxKickback;
@@ -1773,7 +1782,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void SetCrosshair()
+		public void SetCrosshair()
 		{
 			if (crosshairObj != null)
 			{
@@ -1825,7 +1834,7 @@ namespace ooparts.fpsctorcs
 			GameObject instantiatedProjectile1 = Instantiate(shell, ejectorPosition.transform.position, ejectorPosition.transform.rotation) as GameObject;
 		}
 
-		void FireEffects()
+		public void FireEffects()
 		{
 			bool scoped = transform.Find("AimObject").GetComponent<AimMode>().inScope;
 			if (!scoped)
@@ -1848,7 +1857,7 @@ namespace ooparts.fpsctorcs
 		}
 
 		//Returns primary gunscript on this weapon
-		GunScript GetPrimaryGunScript()
+		public GunScript GetPrimaryGunScript()
 		{
 			if (isPrimaryWeapon)
 			{
