@@ -10,7 +10,7 @@ namespace ooparts.fpsctorcs
 
 		private float fadeSpeed;
 		private float intensity;
-		float startIntensity = 6;
+		public float startIntensity = 6;
 		private Color color;
 		private bool active1 = false;
 
@@ -38,7 +38,7 @@ namespace ooparts.fpsctorcs
 			}
 		}
 
-		void Activate()
+		public void Activate()
 		{
 			GetComponent<Light>().intensity = startIntensity;
 			intensity = GetComponent<Light>().intensity;

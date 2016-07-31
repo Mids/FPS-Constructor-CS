@@ -5,8 +5,8 @@ namespace ooparts.fpsctorcs
 {
 	public class DrawRay : MonoBehaviour
 	{
-		bool needsSelection = false;
-		bool negative = false;
+		public bool needsSelection = false;
+		public bool negative = false;
 
 		void OnDrawGizmosSelected()
 		{

@@ -6,61 +6,61 @@ namespace ooparts.fpsctorcs
 	public class GunChildAnimation : MonoBehaviour
 	{
 
-		string fireAnim = "Fire";
-		string emptyFireAnim = "";
-		string reloadAnim = "Reload";
-		string emptyReloadAnim = "Reload";
-		string takeOutAnim = "TakeOut";
-		string putAwayAnim = "PutAway";
-		string enterSecondaryAnim = "EnterSecondary";
-		string exitSecondaryAnim = "ExitSecondary";
-		string reloadIn = "ReloadIn";
-		string reloadOut = "ReloadOut";
+		public string fireAnim = "Fire";
+		public string emptyFireAnim = "";
+		public string reloadAnim = "Reload";
+		public string emptyReloadAnim = "Reload";
+		public string takeOutAnim = "TakeOut";
+		public string putAwayAnim = "PutAway";
+		public string enterSecondaryAnim = "EnterSecondary";
+		public string exitSecondaryAnim = "ExitSecondary";
+		public string reloadIn = "ReloadIn";
+		public string reloadOut = "ReloadOut";
 
-		string walkAnimation = "Walk";
-		string secondaryWalkAnim = "";
-		string secondarySprintAnim = "";
-		float walkSpeedModifier = 20;
-		bool walkWhenAiming = false;
-		string sprintAnimation = "Sprint";
-		string nullAnim = "Null";
-		string secondaryNullAnim = "";
-		string idleAnim = "Idle";
-		string secondaryIdleAnim = "";
-		string chargeAnim = "Charge";
+		public string walkAnimation = "Walk";
+		public string secondaryWalkAnim = "";
+		public string secondarySprintAnim = "";
+		public float walkSpeedModifier = 20;
+		public bool walkWhenAiming = false;
+		public string sprintAnimation = "Sprint";
+		public string nullAnim = "Null";
+		public string secondaryNullAnim = "";
+		public string idleAnim = "Idle";
+		public string secondaryIdleAnim = "";
+		public string chargeAnim = "Charge";
 		private float stopAnimTime = 0;
-		bool aim = false;
+		public bool aim = false;
 		private CharacterMotorDB CM;
 		private bool idle = false;
 		private bool secondary = false;
 		private string walkAnim = "";
 		private string sprintAnim = "";
 		private string nullAnimation = "";
-		bool hasSecondary = false;
+		public bool hasSecondary = false;
 
-		string secondaryReloadAnim = "";
-		string secondaryReloadEmpty = "";
-		string secondaryFireAnim = "";
-		string secondaryEmptyFireAnim = "";
+		public string secondaryReloadAnim = "";
+		public string secondaryReloadEmpty = "";
+		public string secondaryFireAnim = "";
+		public string secondaryEmptyFireAnim = "";
 
 		//melee
-		int animCount = 2;
-		string[] fireAnims = new string[15];
-		string[] reloadAnims = new string[15];
-		int index = -1;
-		int lastIndex = -1;
-		bool melee = false;
-		bool random = false;
-		float lastSwingTime;
-		float resetTime;
-		GunScript gs;
+		public int animCount = 2;
+		public string[] fireAnims = new string[15];
+		public string[] reloadAnims = new string[15];
+		public int index = -1;
+		public int lastIndex = -1;
+		public bool melee = false;
+		public bool random = false;
+		public float lastSwingTime;
+		public float resetTime;
+		public GunScript gs;
 
 		private Vector3 dir;
 		private float moveWeight = 1;
 		private float nullWeight = 1;
 		private bool useStrafe = true;
 
-		void PlayAnim(string name)
+		public void PlayAnim(string name)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[name] == null || !gs.gunActive)
@@ -73,7 +73,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + GetComponent<Animation>()[name].length;
 		}
 
-		void PlayAnim(string name, float time)
+		public void PlayAnim(string name, float time)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[name] == null || !gs.gunActive)
@@ -170,7 +170,7 @@ namespace ooparts.fpsctorcs
 				animation.CrossFade(nullAnim, .4);
 		}*/
 
-		void ReloadAnim(float reloadTime)
+		public void ReloadAnim(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[reloadAnim] == null)
@@ -184,7 +184,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + reloadTime;
 		}
 
-		void ReloadEmpty(float reloadTime)
+		public void ReloadEmpty(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[emptyReloadAnim] == null)
@@ -197,7 +197,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + reloadTime;
 		}
 
-		void FireAnim()
+		public void FireAnim()
 		{
 			idle = false;
 			if (GetComponent<Animation>()[fireAnim] == null)
@@ -209,7 +209,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + GetComponent<Animation>()[fireAnim].clip.length;
 		}
 
-		void SecondaryReloadEmpty(float reloadTime)
+		public void SecondaryReloadEmpty(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[secondaryReloadEmpty] == null)
@@ -222,7 +222,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + reloadTime;
 		}
 
-		void SecondaryReloadAnim(float reloadTime)
+		public void SecondaryReloadAnim(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[secondaryReloadAnim] == null)
@@ -235,7 +235,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + reloadTime;
 		}
 
-		void SecondaryFireAnim()
+		public void SecondaryFireAnim()
 		{
 			idle = false;
 			if (GetComponent<Animation>()[secondaryFireAnim] == null)
@@ -247,7 +247,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + GetComponent<Animation>()[secondaryFireAnim].clip.length;
 		}
 
-		void TakeOutAnim(float takeOutTime)
+		public void TakeOutAnim(float takeOutTime)
 		{
 			idle = false;
 			if (takeOutTime <= 0)
@@ -264,7 +264,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + takeOutTime;
 		}
 
-		void PutAwayAnim(float putAwayTime)
+		public void PutAwayAnim(float putAwayTime)
 		{
 			idle = false;
 			secondary = false;
@@ -282,7 +282,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + putAwayTime;
 		}
 
-		void SingleFireAnim(float fireRate)
+		public void SingleFireAnim(float fireRate)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[fireAnim] == null)
@@ -296,7 +296,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + fireRate;
 		}
 
-		void EmptyFireAnim()
+		public void EmptyFireAnim()
 		{
 			idle = false;
 			if (GetComponent<Animation>()[emptyFireAnim] == null)
@@ -309,7 +309,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + GetComponent<Animation>()[emptyFireAnim].length;
 		}
 
-		void SecondaryEmptyFireAnim()
+		public void SecondaryEmptyFireAnim()
 		{
 			idle = false;
 			if (GetComponent<Animation>()[secondaryEmptyFireAnim] == null)
@@ -322,7 +322,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + GetComponent<Animation>()[secondaryEmptyFireAnim].length;
 		}
 
-		void EnterSecondary(float t)
+		public void EnterSecondary(float t)
 		{
 			if (GetComponent<Animation>()[secondaryNullAnim] != null)
 			{
@@ -341,7 +341,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + t;
 		}
 
-		void ExitSecondary(float t)
+		public void ExitSecondary(float t)
 		{
 			nullAnimation = nullAnim;
 			idle = false;
@@ -357,7 +357,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + t;
 		}
 
-		void SingleSecFireAnim(float fireRate)
+		public void SingleSecFireAnim(float fireRate)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[secondaryFireAnim] == null)
@@ -371,7 +371,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + fireRate;
 		}
 
-		void ReloadIn(float reloadTime)
+		public void ReloadIn(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[reloadIn] == null)
@@ -384,7 +384,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + reloadTime;
 		}
 
-		void ReloadOut(float reloadTime)
+		public void ReloadOut(float reloadTime)
 		{
 			idle = false;
 			if (GetComponent<Animation>()[reloadOut] == null)
@@ -469,7 +469,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = -1;
 		}
 
-		void Aiming()
+		public void Aiming()
 		{
 			idle = false;
 			aim = true;
@@ -487,12 +487,12 @@ namespace ooparts.fpsctorcs
 				GetComponent<Animation>().CrossFade(nullAnimation, 0.2f);
 		}
 
-		void StopAiming()
+		public void StopAiming()
 		{
 			aim = false;
 		}
 
-		void FireMelee(float fireRate)
+		public void FireMelee(float fireRate)
 		{
 			string temp;
 			if (random)
@@ -541,7 +541,7 @@ namespace ooparts.fpsctorcs
 			stopAnimTime = Time.time + fireRate;
 		}
 
-		void ReloadMelee(float fireRate)
+		public void ReloadMelee(float fireRate)
 		{
 			string temp;
 			temp = reloadAnims[index];
