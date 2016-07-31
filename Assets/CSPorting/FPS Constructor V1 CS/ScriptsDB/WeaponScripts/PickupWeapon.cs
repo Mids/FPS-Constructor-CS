@@ -105,7 +105,7 @@ namespace ooparts.fpsctorcs
 			WeaponInfo selectedWeaponInfo = selectedWeapon.GetComponent<SelectableWeapon>().weapon.GetComponent<WeaponInfo>();
 
 			//Get applicable slot
-			int theSlot = store.autoEquipWeaponWithReplacement(selectedWeaponInfo, true);
+			int theSlot = 1;//store.autoEquipWeaponWithReplacement(selectedWeaponInfo, true);
 			if (theSlot < 0 && !playerWeapons.weapons[playerWeapons.selectedWeapon] == null)
 			{
 				return;
