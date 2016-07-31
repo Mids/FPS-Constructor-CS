@@ -98,7 +98,7 @@ namespace ooparts.fpsctorcs
 		public float rotationSpeed = 180;
 		public CharacterController controller;
 		private bool zoomed = false;
-		public bool canSwitchWeaponAim = true;
+		public static bool canSwitchWeaponAim = true;
 		public static bool staticAiming = false;
 		public bool hasSecondary = true;
 		public GunScript GunScript1;
