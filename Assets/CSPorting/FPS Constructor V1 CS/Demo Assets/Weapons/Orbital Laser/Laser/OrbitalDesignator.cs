@@ -6,24 +6,24 @@ namespace ooparts.fpsctorcs
 {
 	public class OrbitalDesignator : MonoBehaviour
 	{
-		GunScript gscript;
-		Transform designator;
+		public GunScript gscript;
+		public Transform designator;
 		private Light desigLight;
-		Transform laser;
-		float lockTime = 0;
-		float lockRange;
-		float targetError;
+		public Transform laser;
+		public float lockTime = 0;
+		public float lockRange;
+		public float targetError;
 		private bool lockedOn = false;
-		float lockMax;
-		LineRenderer line;
+		public float lockMax;
+		public LineRenderer line;
 
-		void Start()
+		public void Start()
 		{
 			desigLight = designator.GetComponentInChildren<Light>();
 			line = this.GetComponent<LineRenderer>();
 		}
 
-		void Update()
+		public void Update()
 		{
 			if (Random.value < lockTime / lockMax)
 			{
