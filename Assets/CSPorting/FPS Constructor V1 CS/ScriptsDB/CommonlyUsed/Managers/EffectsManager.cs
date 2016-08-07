@@ -7,7 +7,7 @@ namespace ooparts.fpsctorcs
 	public class EffectsManager : MonoBehaviour
 	{
 		public const int maxSets = 75; //The maximum number of decal sets. This is an arbitrary number, and can be increased if required for some reason.
-		public const int maxDecals = 75; //The maximum number of decals that can exist in the world. This is editable in the inspector
+		public static int maxDecals = 75; //The maximum number of decals that can exist in the world. This is editable in the inspector
 
 		public EffectSet[] setArray = new EffectSet[maxSets]; //This is an array which stores all the effects sets we have created.
 		public string[] setNameArray = new string[1]; //The names of each set are stored in a separate array from the actual effects sets
@@ -83,7 +83,7 @@ namespace ooparts.fpsctorcs
 		//Called when the user creates a set
 		public void CreateSet()
 		{
-			setArray[highestSet] = new EffectSet();
+			setArray[highestSet] = new GameObject().AddComponent<EffectSet>();
 			RebuildNameArray("Set " + highestSet);
 			selectedSet = highestSet;
 			highestSet++;
