@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class ShotCount : MonoBehaviour 
+	public class ShotCount : MonoBehaviour
 	{
 		public int val;
 		private int cache;
@@ -15,6 +15,7 @@ namespace ooparts.fpsctorcs
 			cache = val - gscript.shotCount;
 			gscript.shotCount += cache;
 		}
+
 		public void Remove(GunScript gscript)
 		{
 			gscript.shotCount -= cache;
