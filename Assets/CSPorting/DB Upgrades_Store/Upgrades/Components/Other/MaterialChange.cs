@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using ooparts.fpsctorcs;
-using UnityScript.Lang;
 
 namespace ooparts.fpsctorcs
 {
