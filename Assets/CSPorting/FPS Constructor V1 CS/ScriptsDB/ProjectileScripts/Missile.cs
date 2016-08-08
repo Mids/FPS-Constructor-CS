@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	/// <summary>
@@ -41,8 +42,8 @@ namespace ooparts.fpsctorcs
 				DestroyNow();
 			yield return new WaitForSeconds(delay);
 			hasCollided = true;
-
 		}
+
 		void OnCollisionEnter(Collision collision)
 		{
 			StartCoroutine(HandleCollisionEnter(collision));

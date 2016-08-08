@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class SelectableWeapon : MonoBehaviour
 	{
-
 		private bool selected = false;
 		public GameObject weapon;
-		[HideInInspector]
-		public WeaponInfo WeaponInfo;
+		[HideInInspector] public WeaponInfo WeaponInfo;
 		public bool isEquipped = false;
 		public int ammo = 0;
 		//@HideInInspector
@@ -59,7 +58,7 @@ namespace ooparts.fpsctorcs
 		public void PopulateDrop()
 		{
 			WeaponInfo = weapon.GetComponent<WeaponInfo>();
-			ammo = (int)WeaponInfo.gun.ammoLeft;
+			ammo = (int) WeaponInfo.gun.ammoLeft;
 
 			if (!PlayerWeapons.saveUpgradesToDrops)
 				return;

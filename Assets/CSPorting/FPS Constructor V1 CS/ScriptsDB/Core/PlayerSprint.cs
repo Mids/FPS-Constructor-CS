@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class PlayerSprint : MonoBehaviour
@@ -9,10 +10,8 @@ namespace ooparts.fpsctorcs
 		private bool exhausted = false;
 		private float sprintEndTime;
 		private CharacterMotorDB CM;
-		[HideInInspector]
-		public bool weaponsInactive = false;
-		[HideInInspector]
-		public MovementValues values;
+		[HideInInspector] public bool weaponsInactive = false;
+		[HideInInspector] public MovementValues values;
 
 		void Start()
 		{
@@ -50,7 +49,7 @@ namespace ooparts.fpsctorcs
 			}
 
 			//Handle sprint
-			if (InputDB.GetButton("Sprint") && !InputDB.GetButton("Aim") && PlayerWeapons.canSprint && CM.grounded && !exhausted && (PlayerWeapons.controller.velocity.magnitude > CM.movement.minSprintSpeed || (/*CM.prone || */CharacterMotorDB.crouching)))
+			if (InputDB.GetButton("Sprint") && !InputDB.GetButton("Aim") && PlayerWeapons.canSprint && CM.grounded && !exhausted && (PlayerWeapons.controller.velocity.magnitude > CM.movement.minSprintSpeed || ( /*CM.prone || */CharacterMotorDB.crouching)))
 			{
 				AimMode.sprintNum = Mathf.Clamp(AimMode.sprintNum - Time.deltaTime, 0, values.sprintDuration);
 				if (!AimMode.sprintingPublic)

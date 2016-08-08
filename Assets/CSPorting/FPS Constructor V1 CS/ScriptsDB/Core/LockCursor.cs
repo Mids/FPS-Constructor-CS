@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class LockCursor : MonoBehaviour
@@ -19,6 +20,7 @@ namespace ooparts.fpsctorcs
 			mobile = false;
 #endif
 		}
+
 		void Start()
 		{
 			if (!mobile)
@@ -33,7 +35,6 @@ namespace ooparts.fpsctorcs
 				canLock = false;
 				PlayerWeapons.playerActive = true;
 			}
-
 		}
 
 		public void OnApplicationQuit()
@@ -57,7 +58,6 @@ namespace ooparts.fpsctorcs
 				//Screen.lockCursor = false;
 				Time.timeScale = 0;
 				player.BroadcastMessage("Freeze", SendMessageOptions.DontRequireReceiver);
-
 			}
 			else
 			{

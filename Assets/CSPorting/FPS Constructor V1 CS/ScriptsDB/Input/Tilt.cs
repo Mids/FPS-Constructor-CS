@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Tilt : MonoBehaviour
 	{
-		public enum axes 
-		{ 
-			x, 
-			y, 
-			z 
+		public enum axes
+		{
+			x,
+			y,
+			z
 		} //which rotation axis should we use?
 		public axes axis = axes.z;
 
-		public enum directions 
-		{ 
-			positive, 
-			negative 
+		public enum directions
+		{
+			positive,
+			negative
 		} //should it be inverted?
 		public directions direction = directions.positive;
 
@@ -53,6 +54,5 @@ namespace ooparts.fpsctorcs
 			if (direction == directions.negative)
 				input.axis *= -1;
 		}
-
 	}
 }

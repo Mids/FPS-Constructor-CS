@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Grenade : MonoBehaviour
 	{
-
 		public float delay = 1.0f;
 		public float timeOut = 1.0f;
 		public bool detachChildren = false;
@@ -27,6 +27,7 @@ namespace ooparts.fpsctorcs
 			yield return new WaitForSeconds(delay);
 			hasCollided = true;
 		}
+
 		void OnCollisionEnter(Collision collision)
 		{
 			StartCoroutine(HandleCollisionEnter(collision));

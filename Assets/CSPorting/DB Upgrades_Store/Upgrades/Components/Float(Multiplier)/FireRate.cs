@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class FireRate : MonoBehaviour 
+	public class FireRate : MonoBehaviour
 	{
 		public float multiplier = 1.5f;
 		private float cache;

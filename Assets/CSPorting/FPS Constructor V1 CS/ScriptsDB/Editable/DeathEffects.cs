@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class DeathEffects : MonoBehaviour
 	{
-
 		public AnimationClip deathAnim;
 		private bool dead = false;
 		public Texture deadTexture;

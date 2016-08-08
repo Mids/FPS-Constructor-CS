@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Avoidance : MonoBehaviour
 	{
-
 		public Vector3 avoidRotation;
 		public Vector3 avoidPosition;
 		public float avoidStartDistance = 4;
@@ -77,7 +77,7 @@ namespace ooparts.fpsctorcs
 			else if (stopTime < 0)
 			{
 				stopTime = Time.time + .06f;
-			}/* else if(Physics.Raycast(ray2, hit, dist, layerMask) && collided && !GunScript.reloading && !GunScript.takingOut && !GunScript.puttingAway){
+			} /* else if(Physics.Raycast(ray2, hit, dist, layerMask) && collided && !GunScript.reloading && !GunScript.takingOut && !GunScript.puttingAway){
 		Collide(hit);
 	} else if(Physics.Raycast(ray3, hit, dist, layerMask) && collided && !GunScript.reloading && !GunScript.takingOut && !GunScript.puttingAway){
 		Collide(hit);

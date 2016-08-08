@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class ProgressiveReload : MonoBehaviour 
+	public class ProgressiveReload : MonoBehaviour
 	{
 		public bool val;
 		private bool cache;

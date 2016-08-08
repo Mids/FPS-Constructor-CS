@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class TapToInteract : MonoBehaviour
@@ -34,7 +35,6 @@ namespace ooparts.fpsctorcs
 					{
 						target.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 					}
-
 				}
 			}
 		}

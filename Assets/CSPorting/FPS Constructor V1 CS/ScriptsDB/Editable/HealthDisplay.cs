@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
-public class HealthDisplay : MonoBehaviour {
-
-	public PlayerHealth playerHealth;
-
-	void Start()
+	public class HealthDisplay : MonoBehaviour
 	{
-		playerHealth = this.GetComponent<PlayerHealth>();
-	}
+		public PlayerHealth playerHealth;
 
-	void OnGUI()
-	{
-		GUI.Box(new Rect(10, Screen.height - 30, 100, 20), "Health: " + Mathf.Round(playerHealth.health));
+		void Start()
+		{
+			playerHealth = this.GetComponent<PlayerHealth>();
+		}
+
+		void OnGUI()
+		{
+			GUI.Box(new Rect(10, Screen.height - 30, 100, 20), "Health: " + Mathf.Round(playerHealth.health));
+		}
 	}
-}
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class GunScript : MonoBehaviour
@@ -38,25 +39,27 @@ namespace ooparts.fpsctorcs
 		public int clips = 20; //Number of spare clips (reloads) left
 		public int maxClips = 20; //Maximum number of clips
 		public bool infiniteAmmo = false; //Does this gun deplete clips whe reoading?
+
 		public enum ammoTypes
 		{
 			byClip,
 			byBullet
 		}
+
 		public ammoTypes ammoType = ammoTypes.byClip; //Does this weapon conserve ammo when reloading? (e.g. if you reload after shooting one bullet, does it use a whole clip)
 
 
 		////////// Fire Variables //////////
 		public AudioClip fireSound; //Sound that plays when firing
 		public float fireVolume = 1;
-		public float firePitch = 1;//Pitch of fire sound
+		public float firePitch = 1; //Pitch of fire sound
 		public float fireRate = 0.05f; //Time in seconds between shots
 		public bool autoFire; //Is this weapon automatic (can you hold down the fre button?)
 		public bool fireAnim = false; //Does this weapon's fire animation scale to fit the fire rate (generally used for non-automatic weapons)
 		public float delay = 0; //Delay between hitting fire button and actually firing (can be used to sync firing with animation)
 		public AudioClip emptySound; //Sound that plays when firing
 		public float emptyVolume = 1;
-		public float emptyPitch = 1;//Pitch of fire sound
+		public float emptyPitch = 1; //Pitch of fire sound
 
 		//Burst fire
 		//note: burst fire doesn't work well with automatic weapons
@@ -184,7 +187,6 @@ namespace ooparts.fpsctorcs
 		///////////////////////// END CHANGEABLE BY USER /////////////////////////
 
 
-
 		///////////////////////// Internal Variables /////////////////////////
 		/*These variables should not be modified directly, weither because it could compromise
 		the functioning of the package, or because changes will be overwritten.
@@ -259,6 +261,7 @@ namespace ooparts.fpsctorcs
 			melee,
 			spray
 		}
+
 		public gunTypes gunType = gunTypes.hitscan;
 
 		//Melee
@@ -415,7 +418,6 @@ namespace ooparts.fpsctorcs
 				spreadRate = standardSpreadRate * crouchSpreadModifier;
 				shotSpread = Mathf.Max(standardSpread * crouchSpreadModifier, shotSpread);
 			}
-
 		}
 
 		public void Prone()
@@ -513,6 +515,7 @@ namespace ooparts.fpsctorcs
 			if (!CM.grounded)
 				Airborne();
 		}
+
 		public void Cooldown()
 		{
 			if (!gunActive)
@@ -605,7 +608,6 @@ namespace ooparts.fpsctorcs
 
 		public void LateUpdate()
 		{
-
 			if (InputDB.GetButtonDown("Fire2") && secondaryWeapon != null && !secondaryFire && !aim1.aiming && !Avoidance.collided)
 			{
 				if (!secondaryWeapon.gunActive)
@@ -814,7 +816,6 @@ namespace ooparts.fpsctorcs
 
 			if (gunType != gunTypes.spray)
 			{
-
 				//Handle charging
 				if (chargeWeapon)
 				{
@@ -897,7 +898,6 @@ namespace ooparts.fpsctorcs
 								{
 									primaryWeapon.nextFireTime = Time.time + fireRate;
 								}
-
 							}
 							if (burstFire && i < (b - 1))
 							{
@@ -961,6 +961,7 @@ namespace ooparts.fpsctorcs
 		{
 			StartCoroutine(FireShotRoutine());
 		}
+
 		IEnumerator FireShotRoutine()
 		{
 			if (isPrimaryWeapon)
@@ -1068,7 +1069,7 @@ namespace ooparts.fpsctorcs
 						emitter.GetComponent<ParticleEmitter>().Simulate(simulateTime);
 					}
 				}else{*/
-				tracer.transform.rotation = Quaternion.LookRotation(ray.direction);//(transform.position + 90 * direction));
+				tracer.transform.rotation = Quaternion.LookRotation(ray.direction); //(transform.position + 90 * direction));
 				emitter.Emit();
 				emitter.Simulate(simulateTime);
 				//}
@@ -1133,7 +1134,7 @@ namespace ooparts.fpsctorcs
 						//The effectsManager needs five bits of information
 						Quaternion hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 						int hitSet = hit.transform.gameObject.GetComponent<UseEffects>().setIndex;
-						ArrayList hitInfo = new ArrayList { hit.point, hitRotation, hit.transform, hit.normal, hitSet };
+						ArrayList hitInfo = new ArrayList {hit.point, hitRotation, hit.transform, hit.normal, hitSet};
 						effectsManager.SendMessage("ApplyDecal", hitInfo, SendMessageOptions.DontRequireReceiver);
 					}
 
@@ -1247,10 +1248,12 @@ namespace ooparts.fpsctorcs
 			float vz = (1 - 2 * Random.value) * actualSpread;
 			return dir + new Vector3(vx, vy, vz);
 		}
+
 		public void Reload()
 		{
 			StartCoroutine(ReloadRoutine());
 		}
+
 		IEnumerator ReloadRoutine()
 		{
 			if (ammoLeft >= ammoPerClip || clips <= 0 || !gunActive || Avoidance.collided)
@@ -1369,7 +1372,7 @@ namespace ooparts.fpsctorcs
 					if (clips > ammoPerClip)
 					{
 						if (!infiniteAmmo)
-							clips -= (int)(ammoPerClip - ammoLeft);
+							clips -= (int) (ammoPerClip - ammoLeft);
 
 						ammoLeft = ammoPerClip;
 					}
@@ -1377,7 +1380,7 @@ namespace ooparts.fpsctorcs
 					{
 						float ammoVal = Mathf.Clamp(ammoPerClip, clips, ammoLeft + clips);
 						if (!infiniteAmmo)
-							clips -= (int)(ammoVal - ammoLeft);
+							clips -= (int) (ammoVal - ammoLeft);
 
 						ammoLeft = ammoVal;
 					}
@@ -1418,10 +1421,12 @@ namespace ooparts.fpsctorcs
 			if (aim)
 				aim1.canAim = true;
 		}
+
 		public void ProgReload()
 		{
 			StartCoroutine(ProgReloadRoutine());
 		}
+
 		IEnumerator ProgReloadRoutine()
 		{
 			if (reloading)
@@ -1439,7 +1444,7 @@ namespace ooparts.fpsctorcs
 				yield break;
 			if (progressiveReset)
 			{
-				clips += (int)ammoLeft;
+				clips += (int) ammoLeft;
 				ammoLeft = 0;
 			}
 
@@ -1464,6 +1469,7 @@ namespace ooparts.fpsctorcs
 		{
 			StartCoroutine(SelectWeaponRoutine());
 		}
+
 		IEnumerator SelectWeaponRoutine()
 		{
 			AlignToSharedAmmo();
@@ -1540,6 +1546,7 @@ namespace ooparts.fpsctorcs
 		{
 			StartCoroutine(DeselectWeaponRoutine());
 		}
+
 		IEnumerator DeselectWeaponRoutine()
 		{
 			if (GetComponent<AudioSource>())
@@ -1580,6 +1587,7 @@ namespace ooparts.fpsctorcs
 				go.enabled = false;
 			}
 		}
+
 		public void DeselectInstant()
 		{
 			if (GetComponent<AudioSource>())
@@ -1630,7 +1638,7 @@ namespace ooparts.fpsctorcs
 
 		public void WalkSway()
 		{
-			int speed = (int)CM.GetComponent<CharacterController>().velocity.magnitude;
+			int speed = (int) CM.GetComponent<CharacterController>().velocity.magnitude;
 			if (speed < .2)
 			{
 				ResetPosition();
@@ -1694,7 +1702,6 @@ namespace ooparts.fpsctorcs
 			//move towards target
 			transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x, curVect.x, Time.deltaTime * swayRate.x), Mathf.Lerp(transform.localPosition.y, curVect.y, Time.deltaTime * swayRate.y), transform.localPosition.z);
 			transform.localEulerAngles = new Vector3(Mathf.LerpAngle(transform.localEulerAngles.x, curVect.y, Time.deltaTime * swayRate.y), transform.localEulerAngles.y, Mathf.LerpAngle(transform.localEulerAngles.z, curVect.x, Time.deltaTime * swayRate.x));
-
 		}
 
 		public void Sprinting()
@@ -1750,17 +1757,19 @@ namespace ooparts.fpsctorcs
 		{
 			mouseY.offsetY = curKickback;
 			mouseY.maxKickback = maxKickback;
-			mouseX.offsetX = curKickback * xKickbackFactor;//*Random.value;
+			mouseX.offsetX = curKickback * xKickbackFactor; //*Random.value;
 			mouseX.maxKickback = maxKickback;
 			if (mouseY.offsetY < mouseY.maxKickback)
 				mouseY.resetDelay = recoilDelay;
 			if (Mathf.Abs(mouseX.offsetX) < mouseX.maxKickback)
 				mouseX.resetDelay = recoilDelay;
 		}
+
 		public void ActivateSecondary()
 		{
 			StartCoroutine(ActivateSecondaryRoutine());
 		}
+
 		IEnumerator ActivateSecondaryRoutine()
 		{
 			if (secondaryWeapon == null || secondaryFire || reloading)
@@ -1798,10 +1807,12 @@ namespace ooparts.fpsctorcs
 				SendMessageUpwards("DefaultCrosshair");
 			}
 		}
+
 		public void ActivatePrimary()
 		{
 			StartCoroutine(ActivatePrimaryRoutine());
 		}
+
 		IEnumerator ActivatePrimaryRoutine()
 		{
 			AlignToSharedAmmo();

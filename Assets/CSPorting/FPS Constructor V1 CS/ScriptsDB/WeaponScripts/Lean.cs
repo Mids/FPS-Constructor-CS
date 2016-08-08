@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Lean : MonoBehaviour
 	{
-
 		public float leanAmount; //how far does the camera lean?
 		public float leanRate; //how fast does the camera move when leaning? 
 

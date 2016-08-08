@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class FireAnim : MonoBehaviour 
+	public class FireAnim : MonoBehaviour
 	{
 		public string val;
 		private string cache;

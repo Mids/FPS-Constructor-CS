@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class InfiniteAmmo : MonoBehaviour 
+	public class InfiniteAmmo : MonoBehaviour
 	{
 		public bool val;
 		private bool cache;

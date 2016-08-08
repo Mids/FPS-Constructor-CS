@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class BurstFire : MonoBehaviour 
+	public class BurstFire : MonoBehaviour
 	{
 		public bool val;
 		private bool cache;

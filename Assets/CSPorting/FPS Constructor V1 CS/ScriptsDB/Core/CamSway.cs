@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class CamSway : MonoBehaviour
 	{
-
 		public Vector2 moveSwayRate;
 		public Vector2 moveSwayAmplitude;
 		public Vector2 runSwayRate;
@@ -33,7 +33,7 @@ namespace ooparts.fpsctorcs
 			if (swayStartTime > Time.time)
 				swayStartTime = Time.time;
 			CharacterMotorDB CM = PlayerWeapons.CM;
-			int speed = (int)CM.GetComponent<CharacterController>().velocity.magnitude;
+			int speed = (int) CM.GetComponent<CharacterController>().velocity.magnitude;
 
 			//Jostle
 			lastJostle = curJostle;
@@ -67,7 +67,7 @@ namespace ooparts.fpsctorcs
 			{
 				swayRate = moveSwayRate;
 			}
-			curVect.x = swayAmplitude.x * Mathf.Sin(swayRate.x * t);//*Mathf.Sin(swayRate.x*speed/14*t);
+			curVect.x = swayAmplitude.x * Mathf.Sin(swayRate.x * t); //*Mathf.Sin(swayRate.x*speed/14*t);
 			curVect.y = Mathf.Abs(swayAmplitude.y * Mathf.Sin(swayRate.y * t));
 
 			curVect.x -= swayAmplitude.x / 2;
@@ -124,7 +124,8 @@ namespace ooparts.fpsctorcs
 		void Update()
 		{
 			if (!AimMode.staticAiming && PlayerWeapons.CM.grounded && !CharacterMotorDB.paused)
-			{// && CM.walking){
+			{
+// && CM.walking){
 				WalkSway();
 			}
 			else

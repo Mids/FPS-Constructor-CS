@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class TouchButton : MonoBehaviour
 	{
-
 		public InputItem input;
 
 		public Vector2 position; //position of button
 		public Vector2 dimensions; //size of button
 		public string label; //text in button
 		public bool toggle = false; //is this button a toggle?
-		[HideInInspector]
-		public bool toggled = false; //are we currently toggled on?
+		[HideInInspector] public bool toggled = false; //are we currently toggled on?
 		public bool showInStore = false;
 		private bool used = false;
 
 		private bool touched = false; //had we already touched the button
 		private bool touching = false; //are we currently touching the button
-		[HideInInspector]
-		public int curTouch = -1; //what touch id is this using?
+		[HideInInspector] public int curTouch = -1; //what touch id is this using?
 		public bool useUpdate = true;
 
 		void Update()
@@ -41,7 +39,8 @@ namespace ooparts.fpsctorcs
 			if (Input.touches.Length > 0)
 			{
 				foreach (Touch touch in Input.touches)
-				{ //for each touch
+				{
+					//for each touch
 					//Is this touch within our button?
 					touching = Within(touch.position, new Rect(position.x, position.y, dimensions.x, dimensions.y));
 					if (touching)
@@ -57,13 +56,15 @@ namespace ooparts.fpsctorcs
 			}
 
 			if (toggle)
-			{ //Toggle button
+			{
+				//Toggle button
 				input.got = toggled;
 
 				if (touching)
 				{
 					if (!touched)
-					{ //first frame touching the button
+					{
+						//first frame touching the button
 						touched = true;
 
 						input.up = toggled;
@@ -83,17 +84,19 @@ namespace ooparts.fpsctorcs
 					touched = false;
 					curTouch = -1;
 				}
-
 			}
 			else
-			{ //Normal Button
+			{
+				//Normal Button
 				if (touching)
-				{ //We are touching
+				{
+					//We are touching
 					input.got = true; //the button is down
 					input.up = false; //the button is not up
 
 					if (!touched)
-					{// we hadn't already touched the button (first frame holding it)
+					{
+// we hadn't already touched the button (first frame holding it)
 						input.down = true; //the button was got
 						touched = true; //we have touched	
 					}
@@ -103,7 +106,8 @@ namespace ooparts.fpsctorcs
 					}
 				}
 				else
-				{ //We are not touching
+				{
+					//We are not touching
 					curTouch = -1;
 					if (touched)
 					{

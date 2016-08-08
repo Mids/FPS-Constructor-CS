@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
-	[RequireComponent(typeof(GUITexture))]
+	[RequireComponent(typeof (GUITexture))]
 	public class JoystickDB : MonoBehaviour
 	{
 		// A simple class for bounding how far the GUITexture will move
@@ -13,31 +14,31 @@ namespace ooparts.fpsctorcs
 			public Vector2 max = Vector2.zero;
 		}
 
-		static private JoystickDB[] joysticks;					// A static collection of all joysticks
+		static private JoystickDB[] joysticks; // A static collection of all joysticks
 		static private bool enumeratedJoysticks = false;
-		static private float tapTimeDelta = 0.3f;				// Time allowed between taps
+		static private float tapTimeDelta = 0.3f; // Time allowed between taps
 
-		public bool touchPad; 									// Is this a TouchPad?
+		public bool touchPad; // Is this a TouchPad?
 		public Rect touchZone;
-		public Vector2 deadZone = Vector2.zero;						// Control when position is output
-		public bool normalize = false; 							// Normalize output after the dead-zone?
-		public Vector2 position; 									// [-1, 1] in x,y
-		public int tapCount;											// Current tap count
-		public InputItem inputX;										// Input item to modify
-		public InputItem inputY;										// Input item to modify
+		public Vector2 deadZone = Vector2.zero; // Control when position is output
+		public bool normalize = false; // Normalize output after the dead-zone?
+		public Vector2 position; // [-1, 1] in x,y
+		public int tapCount; // Current tap count
+		public InputItem inputX; // Input item to modify
+		public InputItem inputY; // Input item to modify
 		public float sensitivity = 1;
 
-		private int lastFingerId = -1;								// Finger last used for this joystick
-		private float tapTimeWindow;							// How much time there is left for a tap to occur
+		private int lastFingerId = -1; // Finger last used for this joystick
+		private float tapTimeWindow; // How much time there is left for a tap to occur
 		private Vector2 fingerDownPos;
 		private float fingerDownTime;
 		private float firstDeltaTime = 0.5f;
 
-		private GUITexture gui;								// Joystick graphic
-		private Rect defaultRect;								// Default position / extents of the joystick graphic
-		private Boundary guiBoundary = new Boundary();			// Boundary for joystick graphic
-		private Vector2 guiTouchOffset;						// Offset to apply to touch input
-		private Vector2 guiCenter;							// Center of joystick
+		private GUITexture gui; // Joystick graphic
+		private Rect defaultRect; // Default position / extents of the joystick graphic
+		private Boundary guiBoundary = new Boundary(); // Boundary for joystick graphic
+		private Vector2 guiTouchOffset; // Offset to apply to touch input
+		private Vector2 guiCenter; // Center of joystick
 
 		private static Color internalColor = Color.white;
 
@@ -51,8 +52,8 @@ namespace ooparts.fpsctorcs
 			// Store the default rect for the gui, so we can snap back to it
 			defaultRect = gui.pixelInset;
 
-			defaultRect.x += position.x * Screen.width;// + gui.pixelInset.x; // -  Screen.width * 0.5f;
-			defaultRect.y += position.y * Screen.height;// - Screen.height * 0.5f;
+			defaultRect.x += position.x * Screen.width; // + gui.pixelInset.x; // -  Screen.width * 0.5f;
+			defaultRect.y += position.y * Screen.height; // - Screen.height * 0.5f;
 
 			position.x = 0;
 			position.y = 0;
@@ -122,7 +123,7 @@ namespace ooparts.fpsctorcs
 			if (!enumeratedJoysticks)
 			{
 				// Collect all joysticks in the game, so we can relay finger latching messages
-				joysticks = FindObjectsOfType(typeof(JoystickDB)) as JoystickDB[];
+				joysticks = FindObjectsOfType(typeof (JoystickDB)) as JoystickDB[];
 				enumeratedJoysticks = true;
 			}
 
@@ -157,7 +158,6 @@ namespace ooparts.fpsctorcs
 					// Latch the finger if this is a new touch
 					if (shouldLatchFinger && (lastFingerId == -1 || lastFingerId != touch.fingerId))
 					{
-
 						if (touchPad)
 						{
 							internalColor = gui.color;

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class GunChildAnimation : MonoBehaviour
 	{
-
 		public string fireAnim = "Fire";
 		public string emptyFireAnim = "";
 		public string reloadAnim = "Reload";
@@ -401,6 +401,7 @@ namespace ooparts.fpsctorcs
 		{
 			StartCoroutine(IdleAnimRoutine());
 		}
+
 		IEnumerator IdleAnimRoutine()
 		{
 			if (GetComponent<Animation>()[idleAnim] == null || idle || Time.time < stopAnimTime)
@@ -555,8 +556,6 @@ namespace ooparts.fpsctorcs
 			//animation.Rewind(temp);
 			GetComponent<Animation>().CrossFadeQueued(temp, 0.05f);
 			stopAnimTime = Time.time + fireRate;
-
 		}
-
 	}
 }

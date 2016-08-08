@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class AimSpreadRate : MonoBehaviour 
+	public class AimSpreadRate : MonoBehaviour
 	{
 		public float multiplier = 1.5f;
 		private float cache;
@@ -15,6 +15,7 @@ namespace ooparts.fpsctorcs
 			cache = gScript.aimSpreadRate * (multiplier - 1);
 			gScript.aimSpreadRate += cache;
 		}
+
 		public void Remove(GunScript gScript)
 		{
 			gScript.aimSpreadRate -= cache;

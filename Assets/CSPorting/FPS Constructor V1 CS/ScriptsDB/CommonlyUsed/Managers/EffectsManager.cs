@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class EffectsManager : MonoBehaviour
@@ -76,7 +77,6 @@ namespace ooparts.fpsctorcs
 					tempArr.Add(str);
 					setNameArray = tempArr.ToArray();
 				}
-
 			}
 		}
 
@@ -157,7 +157,6 @@ namespace ooparts.fpsctorcs
 				setArray[selectedSet].setName = str;
 				setNameArray[selectedSet] = str;
 			}
-
 		}
 
 		//Applies hit effects like sparks. Called from either ApplyDecal or ApplyDent
@@ -241,7 +240,8 @@ namespace ooparts.fpsctorcs
 					if (currentDecal >= maxDecals)
 					{
 						currentDecal = 0;
-					} if (decalArray[currentDecal] != null)
+					}
+					if (decalArray[currentDecal] != null)
 					{
 						Destroy(decalArray[currentDecal]);
 					}

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class PickupWeapon : MonoBehaviour
@@ -105,7 +106,7 @@ namespace ooparts.fpsctorcs
 			WeaponInfo selectedWeaponInfo = selectedWeapon.GetComponent<SelectableWeapon>().weapon.GetComponent<WeaponInfo>();
 
 			//Get applicable slot
-			int theSlot = 1;//store.autoEquipWeaponWithReplacement(selectedWeaponInfo, true);
+			int theSlot = 1; //store.autoEquipWeaponWithReplacement(selectedWeaponInfo, true);
 			if (theSlot < 0 && !playerWeapons.weapons[playerWeapons.selectedWeapon] == null)
 			{
 				return;

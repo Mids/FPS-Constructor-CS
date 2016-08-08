@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class HitDirectional : MonoBehaviour
@@ -26,6 +27,7 @@ namespace ooparts.fpsctorcs
 			yield return new WaitForSeconds(time);
 			Destroy(gameObject);
 		}
+
 		void LateUpdate()
 		{
 			Renderer renderer = obj.GetComponent<Renderer>();

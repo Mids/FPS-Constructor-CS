@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class SpreadDecreaseRate : MonoBehaviour 
+	public class SpreadDecreaseRate : MonoBehaviour
 	{
 		public float multiplier = 1.5f;
 		private float cache;

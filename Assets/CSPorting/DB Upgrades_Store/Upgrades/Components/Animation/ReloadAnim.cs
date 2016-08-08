@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class ReloadAnim : MonoBehaviour 
+	public class ReloadAnim : MonoBehaviour
 	{
 		public string val;
 		private string cache;

@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class PlayerWeapons : MonoBehaviour
 	{
-
 		public GameObject[] weapons; //Array of equipped weapons (accessible by number keys)
 		public int selectedWeapon = 0; //index of currently selected weapon in array
 		public bool reloadWhileSprinting = false;
 		public float displayTime = 1; //How long slot-related message is shown for
 		public float sensitivity = 13; //Sensitivity of mouse
-		public bool inverted = false;	//Is the mouse y-axis inverted
+		public bool inverted = false; //Is the mouse y-axis inverted
 		public float interactDistance = 5; //How far can an object be to be interacted with
 		private Transform lastHit; //the last object we hit
 		public LayerMask interactMask; //Mask for raycast
@@ -63,6 +63,7 @@ namespace ooparts.fpsctorcs
 			//playerActive = true;
 			ActivateWeapon();
 		}
+
 		void Awake()
 		{
 			if (PW)
@@ -77,6 +78,7 @@ namespace ooparts.fpsctorcs
 
 			SetSensitivity();
 		}
+
 		public void SetSensitivity()
 		{
 			transform.parent.GetComponent<MouseLookDBJS>().sensitivityStandardX = sensitivity;
@@ -84,7 +86,6 @@ namespace ooparts.fpsctorcs
 				sensitivity *= -1;
 			this.GetComponent<MouseLookDBJS>().sensitivityStandardY = sensitivity;
 			sensitivity = Mathf.Abs(sensitivity);
-
 		}
 
 		void LateUpdate()
@@ -101,7 +102,7 @@ namespace ooparts.fpsctorcs
 				gameObject.BroadcastMessage("ReleaseFire", 1, SendMessageOptions.DontRequireReceiver);
 			}
 			if (weapons[selectedWeapon] != null)
-				if (/*!InputDB.GetButton ("Fire1") || */Time.time > weapons[selectedWeapon].GetComponent<GunScript>().nextFireTime)
+				if ( /*!InputDB.GetButton ("Fire1") || */Time.time > weapons[selectedWeapon].GetComponent<GunScript>().nextFireTime)
 				{
 					BroadcastMessage("Cooldown");
 				}
@@ -205,7 +206,6 @@ namespace ooparts.fpsctorcs
 					}
 				}
 			}
-
 		}
 
 		public void SelectWeapon(int index)

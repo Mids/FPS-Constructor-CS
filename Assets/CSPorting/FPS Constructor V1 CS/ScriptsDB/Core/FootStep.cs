@@ -1,29 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class FootStep : MonoBehaviour
 	{
-
 		public float footstepInterval = .5f;
 		public float footstepVolume = .5f;
 		private float distanceMoved = 0;
 		private Vector3 lastStep;
 		private bool landing = false;
 
-		[HideInInspector]
-		public EffectsManager effectsManager;
-		[HideInInspector]
-		public CharacterMotorDB characterMotor;
-		[HideInInspector]
-		public AudioSource source;
-		[HideInInspector]
-		public AudioClip soundClip;
-		[HideInInspector]
-		public int playDex = 0;
-		[HideInInspector]
-		public GameObject surface;
+		[HideInInspector] public EffectsManager effectsManager;
+		[HideInInspector] public CharacterMotorDB characterMotor;
+		[HideInInspector] public AudioSource source;
+		[HideInInspector] public AudioClip soundClip;
+		[HideInInspector] public int playDex = 0;
+		[HideInInspector] public GameObject surface;
 
 		void Awake()
 		{
@@ -45,7 +39,8 @@ namespace ooparts.fpsctorcs
 			distanceMoved += Vector3.Distance(transform.position, lastStep);
 			lastStep = transform.position;
 			if (CharacterMotorDB.walking)
-			{//|| (landing && characterMotor.grounded))){
+			{
+//|| (landing && characterMotor.grounded))){
 				if (CharacterMotorDB.prone)
 				{
 					Crawl();

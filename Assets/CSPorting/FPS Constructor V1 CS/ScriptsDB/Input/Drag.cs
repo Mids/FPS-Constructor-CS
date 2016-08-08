@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Drag : MonoBehaviour
@@ -28,9 +29,11 @@ namespace ooparts.fpsctorcs
 			int t = 0;
 
 			if (Input.touches.Length > 0)
-			{ //user is touching
+			{
+				//user is touching
 				for (t = 0; t < Input.touches.Length; t++)
-				{ //for each touch
+				{
+					//for each touch
 
 					//check if that touch is currently touching a button
 					inButtons = false;
@@ -44,7 +47,6 @@ namespace ooparts.fpsctorcs
 					}
 					if (!inButtons) //if it wasn't, then we have found our touch
 						break;
-
 				}
 
 				//if no touch was viable
@@ -52,7 +54,8 @@ namespace ooparts.fpsctorcs
 					return;
 
 				if (Input.touches[t].phase == TouchPhase.Moved)
-				{ //the touch moved
+				{
+					//the touch moved
 					x = Input.touches[t].deltaPosition.x * sensitivity * Time.deltaTime;
 					y = Input.touches[t].deltaPosition.y * sensitivity * Time.deltaTime;
 				}

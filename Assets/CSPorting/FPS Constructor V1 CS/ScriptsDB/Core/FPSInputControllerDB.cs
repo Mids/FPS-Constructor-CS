@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
-	[RequireComponent(typeof(CharacterMotorDB))]
+	[RequireComponent(typeof (CharacterMotorDB))]
 	public class FPSInputControllerDB : MonoBehaviour
 	{
 		private CharacterMotorDB motor;

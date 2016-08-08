@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
-	[RequireComponent(typeof(CharacterController))]
-	[RequireComponent(typeof(MovementValues))]
+	[RequireComponent(typeof (CharacterController))]
+	[RequireComponent(typeof (MovementValues))]
 	public class CharacterMotorDB : MonoBehaviour
 	{
 		public bool canControl = true;
@@ -24,10 +25,8 @@ namespace ooparts.fpsctorcs
 		public static bool prone = false;
 		public static bool walking = false;
 		public static bool sprinting = false;
-		[HideInInspector]
-		public bool stopCrouching = false;
-		[HideInInspector]
-		public bool stopProne = false;
+		[HideInInspector] public bool stopCrouching = false;
+		[HideInInspector] public bool stopProne = false;
 		public float velocityFactor = 2;
 		private bool canSprint = true;
 		public static float maxSpeed;
@@ -53,55 +52,35 @@ namespace ooparts.fpsctorcs
 		// Very handy for organization!
 
 		// The current global direction we want the character to move in.
-		[System.NonSerialized]
-		public Vector3 inputMoveDirection = Vector3.zero;
+		[System.NonSerialized] public Vector3 inputMoveDirection = Vector3.zero;
 
 		// Is the jump button held down? We use this interface instead of checking
 		// for the jump button directly so this script can also be used by AIs.
-		[System.NonSerialized]
-		public bool inputJump = false;
+		[System.NonSerialized] public bool inputJump = false;
 
 		public class CharacterMotorDBMovement
 		{
 			// The maximum horizontal speed when moving
-			[HideInInspector]
-			public float maxForwardSpeed = 10.0f;
-			[HideInInspector]
-			public float defaultForwardSpeed = 10;
-			[HideInInspector]
-			public float maxCrouchSpeed = 6;
-			[HideInInspector]
-			public float maxSprintSpeed = 13;
-			[HideInInspector]
-			public float minSprintSpeed = 10;
-			[HideInInspector]
-			public float maxAimSpeed = 4;
-			[HideInInspector]
-			public float maxProneSpeed = 4;
+			[HideInInspector] public float maxForwardSpeed = 10.0f;
+			[HideInInspector] public float defaultForwardSpeed = 10;
+			[HideInInspector] public float maxCrouchSpeed = 6;
+			[HideInInspector] public float maxSprintSpeed = 13;
+			[HideInInspector] public float minSprintSpeed = 10;
+			[HideInInspector] public float maxAimSpeed = 4;
+			[HideInInspector] public float maxProneSpeed = 4;
 
-			[HideInInspector]
-			public float maxSidewaysSpeed = 10.0f;
-			[HideInInspector]
-			public float defaultSidewaysSpeed = 10;
-			[HideInInspector]
-			public float sprintSidewaysSpeed = 15;
-			[HideInInspector]
-			public float crouchSidewaysSpeed = 6;
-			[HideInInspector]
-			public float aimSidewaysSpeed = 4;
-			[HideInInspector]
-			public float proneSidewaysSpeed = 2;
+			[HideInInspector] public float maxSidewaysSpeed = 10.0f;
+			[HideInInspector] public float defaultSidewaysSpeed = 10;
+			[HideInInspector] public float sprintSidewaysSpeed = 15;
+			[HideInInspector] public float crouchSidewaysSpeed = 6;
+			[HideInInspector] public float aimSidewaysSpeed = 4;
+			[HideInInspector] public float proneSidewaysSpeed = 2;
 
-			[HideInInspector]
-			public float maxBackwardsSpeed = 10.0f;
-			[HideInInspector]
-			public float defaultBackwardsSpeed = 10;
-			[HideInInspector]
-			public float crouchBackwardsSpeed = 6;
-			[HideInInspector]
-			public float aimBackwardsSpeed = 4;
-			[HideInInspector]
-			public float proneBackwardsSpeed = 2;
+			[HideInInspector] public float maxBackwardsSpeed = 10.0f;
+			[HideInInspector] public float defaultBackwardsSpeed = 10;
+			[HideInInspector] public float crouchBackwardsSpeed = 6;
+			[HideInInspector] public float aimBackwardsSpeed = 4;
+			[HideInInspector] public float proneBackwardsSpeed = 2;
 
 			// Curve for multiplying speed based on slope (negative = downwards)
 			public AnimationCurve slopeSpeedMultiplier = new AnimationCurve(new Keyframe(-90, 1), new Keyframe(0, 1), new Keyframe(90, 0));
@@ -129,22 +108,17 @@ namespace ooparts.fpsctorcs
 			// Very handy for organization!
 
 			// The last collision flags returned from controller.Move
-			[System.NonSerialized]
-			public CollisionFlags collisionFlags;
+			[System.NonSerialized] public CollisionFlags collisionFlags;
 
 			// We will keep track of the character's current velocity,
-			[System.NonSerialized]
-			public Vector3 velocity;
+			[System.NonSerialized] public Vector3 velocity;
 
 			// This keeps track of our current velocity while we're not grounded
-			[System.NonSerialized]
-			public Vector3 frameVelocity = Vector3.zero;
+			[System.NonSerialized] public Vector3 frameVelocity = Vector3.zero;
 
-			[System.NonSerialized]
-			public Vector3 hitPoint = Vector3.zero;
+			[System.NonSerialized] public Vector3 hitPoint = Vector3.zero;
 
-			[System.NonSerialized]
-			public Vector3 lastHitPoint = new Vector3(Mathf.Infinity, 0, 0);
+			[System.NonSerialized] public Vector3 lastHitPoint = new Vector3(Mathf.Infinity, 0, 0);
 		}
 
 		public CharacterMotorDBMovement movement = new CharacterMotorDBMovement();
@@ -182,21 +156,16 @@ namespace ooparts.fpsctorcs
 
 			// Are we jumping? (Initiated with jump button and not grounded yet)
 			// To see if we are just in the air (initiated by jumping OR falling) see the grounded variable.
-			[System.NonSerialized]
-			public bool jumping = false;
+			[System.NonSerialized] public bool jumping = false;
 
-			[System.NonSerialized]
-			public bool holdingJumpButton = false;
+			[System.NonSerialized] public bool holdingJumpButton = false;
 
 			// the time we jumped at (Used to determine for how long to apply extra jump power after jumping.)
-			[System.NonSerialized]
-			public float lastStartTime = 0.0f;
+			[System.NonSerialized] public float lastStartTime = 0.0f;
 
-			[System.NonSerialized]
-			public float lastButtonDownTime = -100;
+			[System.NonSerialized] public float lastButtonDownTime = -100;
 
-			[System.NonSerialized]
-			public Vector3 jumpDir = Vector3.up;
+			[System.NonSerialized] public Vector3 jumpDir = Vector3.up;
 		}
 
 		public CharacterMotorDBJumping jumping = new CharacterMotorDBJumping();
@@ -207,32 +176,23 @@ namespace ooparts.fpsctorcs
 
 			public MovementTransferOnJumpDB movementTransfer = MovementTransferOnJumpDB.PermaTransfer;
 
-			[System.NonSerialized]
-			public Transform hitPlatform;
+			[System.NonSerialized] public Transform hitPlatform;
 
-			[System.NonSerialized]
-			public Transform activePlatform;
+			[System.NonSerialized] public Transform activePlatform;
 
-			[System.NonSerialized]
-			public Vector3 activeLocalPoint;
+			[System.NonSerialized] public Vector3 activeLocalPoint;
 
-			[System.NonSerialized]
-			public Vector3 activeGlobalPoint;
+			[System.NonSerialized] public Vector3 activeGlobalPoint;
 
-			[System.NonSerialized]
-			public Quaternion activeLocalRotation;
+			[System.NonSerialized] public Quaternion activeLocalRotation;
 
-			[System.NonSerialized]
-			public Quaternion activeGlobalRotation;
+			[System.NonSerialized] public Quaternion activeGlobalRotation;
 
-			[System.NonSerialized]
-			public Matrix4x4 lastMatrix;
+			[System.NonSerialized] public Matrix4x4 lastMatrix;
 
-			[System.NonSerialized]
-			public Vector3 platformVelocity;
+			[System.NonSerialized] public Vector3 platformVelocity;
 
-			[System.NonSerialized]
-			public bool newPlatform;
+			[System.NonSerialized] public bool newPlatform;
 		}
 
 		public CharacterMotorDBMovingPlatform movingPlatform = new CharacterMotorDBMovingPlatform();
@@ -256,11 +216,9 @@ namespace ooparts.fpsctorcs
 
 		public CharacterMotorDBSliding sliding = new CharacterMotorDBSliding();
 
-		[System.NonSerialized]
-		public bool grounded = true;
+		[System.NonSerialized] public bool grounded = true;
 
-		[System.NonSerialized]
-		public Vector3 groundNormal = Vector3.zero;
+		[System.NonSerialized] public Vector3 groundNormal = Vector3.zero;
 
 		private Vector3 lastGroundNormal = Vector3.zero;
 
@@ -420,7 +378,7 @@ namespace ooparts.fpsctorcs
 				if (movingPlatform.enabled &&
 					(movingPlatform.movementTransfer == MovementTransferOnJumpDB.InitTransfer ||
 					movingPlatform.movementTransfer == MovementTransferOnJumpDB.PermaTransfer)
-				)
+					)
 				{
 					movement.frameVelocity = movingPlatform.platformVelocity;
 					movement.velocity += movingPlatform.platformVelocity;
@@ -462,7 +420,6 @@ namespace ooparts.fpsctorcs
 				//Debug.Log(fallVal);
 				GetComponent<AudioSource>().volume = landSoundVolume;
 				GetComponent<AudioSource>().PlayOneShot(landSound);
-
 			}
 
 			// Moving platforms support
@@ -492,7 +449,7 @@ namespace ooparts.fpsctorcs
 						movingPlatform.platformVelocity = (
 							movingPlatform.activePlatform.localToWorldMatrix.MultiplyPoint3x4(movingPlatform.activeLocalPoint)
 							- movingPlatform.lastMatrix.MultiplyPoint3x4(movingPlatform.activeLocalPoint)
-						) / Time.deltaTime;
+							) / Time.deltaTime;
 					}
 					movingPlatform.lastMatrix = movingPlatform.activePlatform.localToWorldMatrix;
 					movingPlatform.newPlatform = false;
@@ -721,7 +678,6 @@ namespace ooparts.fpsctorcs
 
 		private Vector3 ApplyGravityAndJumping(Vector3 velocity)
 		{
-
 			if (!inputJump || !canControl)
 			{
 				jumping.holdingJumpButton = false;
@@ -787,7 +743,7 @@ namespace ooparts.fpsctorcs
 					{
 						stopProne = true;
 						NormalSpeed();
-						return Vector3.zero;//디폴트 값을 반환한다면 zero가 맞을터..
+						return Vector3.zero; //디폴트 값을 반환한다면 zero가 맞을터..
 					}
 
 
@@ -795,7 +751,7 @@ namespace ooparts.fpsctorcs
 					if (movingPlatform.enabled &&
 						(movingPlatform.movementTransfer == MovementTransferOnJumpDB.InitTransfer ||
 						movingPlatform.movementTransfer == MovementTransferOnJumpDB.PermaTransfer)
-					)
+						)
 					{
 						movement.frameVelocity = movingPlatform.platformVelocity;
 						velocity += movingPlatform.platformVelocity;
@@ -805,7 +761,6 @@ namespace ooparts.fpsctorcs
 					GetComponent<AudioSource>().volume = jumpSoundVolume;
 					GetComponent<AudioSource>().PlayOneShot(jumpSound);
 					BroadcastMessage("Airborne", SendMessageOptions.DontRequireReceiver);
-
 				}
 				else
 				{
@@ -830,10 +785,12 @@ namespace ooparts.fpsctorcs
 				movement.frameVelocity = Vector3.zero;
 			}
 		}
+
 		private void SubtractNewPlatformVelocity()
 		{
 			StartCoroutine(SubtractNewPlatformVelocityRoutine());
 		}
+
 		private IEnumerator SubtractNewPlatformVelocityRoutine()
 		{
 			// When landing, subtract the velocity of the new ground from the character's velocity
@@ -841,7 +798,7 @@ namespace ooparts.fpsctorcs
 			if (movingPlatform.enabled &&
 				(movingPlatform.movementTransfer == MovementTransferOnJumpDB.InitTransfer ||
 				movingPlatform.movementTransfer == MovementTransferOnJumpDB.PermaTransfer)
-			)
+				)
 			{
 				// If we landed on a new platform, we have to wait for two FixedUpdates
 				// before we know the velocity of the platform under the character
@@ -860,10 +817,10 @@ namespace ooparts.fpsctorcs
 		private bool MoveWithPlatform()
 		{
 			return (
-			   movingPlatform.enabled
-			   && (grounded || movingPlatform.movementTransfer == MovementTransferOnJumpDB.PermaLocked)
-			   && movingPlatform.activePlatform != null
-		   );
+				movingPlatform.enabled
+				&& (grounded || movingPlatform.movementTransfer == MovementTransferOnJumpDB.PermaLocked)
+				&& movingPlatform.activePlatform != null
+				);
 		}
 
 		private Vector3 GetDesiredHorizontalVelocity()

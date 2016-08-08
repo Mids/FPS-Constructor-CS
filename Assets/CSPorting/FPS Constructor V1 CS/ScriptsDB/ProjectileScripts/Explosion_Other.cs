@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class Explosion_Other : MonoBehaviour
 	{
-
 		public float explosionRadius = 5.0f;
 		public float explosionPower = 10.0f;
 		public float explosionDamage = 100.0f;
@@ -18,7 +18,8 @@ namespace ooparts.fpsctorcs
 		public GameObject[] parentArray;
 
 		public bool AlreadyHit(GameObject GO)
-		{  //if this function returns true, we have already hit another child of this object's highest parent
+		{
+			//if this function returns true, we have already hit another child of this object's highest parent
 			GameObject toCompare = FindTopParent(GO);
 			bool toReturn = false;
 			for (int i = 0; i < highestParent; i++)
@@ -36,6 +37,7 @@ namespace ooparts.fpsctorcs
 			}
 			return toReturn;
 		}
+
 		//Finds the top parent, *OR* the first parent with EnemyDamageReceiver
 		//If the top parent has no EnemyDamageReceiver, it returns the object passed in instead, as if there was no parent
 		public GameObject FindTopParent(GameObject GO)
@@ -105,7 +107,7 @@ namespace ooparts.fpsctorcs
 					// Tell the rigidbody or any other script attached to the hit object how much damage is to be applied!
 					if (hit.gameObject.layer != 2)
 					{
-						object[] sendArray = new object[] { hitPoints, false };
+						object[] sendArray = new object[] {hitPoints, false};
 						hit.SendMessageUpwards("ApplyDamage", sendArray, SendMessageOptions.DontRequireReceiver);
 						hit.SendMessageUpwards("Direction", transform, SendMessageOptions.DontRequireReceiver);
 					}

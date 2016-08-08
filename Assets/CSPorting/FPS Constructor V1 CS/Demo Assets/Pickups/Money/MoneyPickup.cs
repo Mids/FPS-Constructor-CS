@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class MoneyPickup : MonoBehaviour 
+	public class MoneyPickup : MonoBehaviour
 	{
 		public int amount;
 		public float delay;

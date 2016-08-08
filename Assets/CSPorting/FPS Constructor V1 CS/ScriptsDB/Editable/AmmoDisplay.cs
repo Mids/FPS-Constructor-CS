@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class AmmoDisplay : MonoBehaviour
 	{
-		[HideInInspector]
-		public int bulletsLeft;
-		[HideInInspector]
-		public int clips;
-		[HideInInspector]
-		public bool display = true; //used by system
+		[HideInInspector] public int bulletsLeft;
+		[HideInInspector] public int clips;
+		[HideInInspector] public bool display = true; //used by system
 		public bool show = true; //used by user
-		[HideInInspector]
-		public string clipDisplay;
+		[HideInInspector] public string clipDisplay;
 		private GunScript[] gunScripts;
 		private GunScript gunScriptSecondary;
 		private GunScript gunScript;

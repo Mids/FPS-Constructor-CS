@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class CameraShake : MonoBehaviour

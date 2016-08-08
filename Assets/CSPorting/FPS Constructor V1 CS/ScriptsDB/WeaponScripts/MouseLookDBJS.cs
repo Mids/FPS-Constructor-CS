@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class MouseLookDBJS : MonoBehaviour
 	{
-
 		public enum RotationAxes
 		{
 			MouseX = 0,
@@ -14,41 +14,29 @@ namespace ooparts.fpsctorcs
 
 		public RotationAxes axes = RotationAxes.MouseX;
 
-		[HideInInspector]
-		public float sensitivityX = 15F;
+		[HideInInspector] public float sensitivityX = 15F;
 
-		[HideInInspector]
-		public float sensitivityY = 15F;
+		[HideInInspector] public float sensitivityY = 15F;
 
-		[HideInInspector]
-		public float sensitivityStandardX = 15F;
+		[HideInInspector] public float sensitivityStandardX = 15F;
 
-		[HideInInspector]
-		public float sensitivityStandardY = 15F;
+		[HideInInspector] public float sensitivityStandardY = 15F;
 
-		[HideInInspector]
-		public float offsetY = 0;
+		[HideInInspector] public float offsetY = 0;
 
-		[HideInInspector]
-		public float offsetX = 0;
+		[HideInInspector] public float offsetX = 0;
 
-		[HideInInspector]
-		public float totalOffsetY = 0;
+		[HideInInspector] public float totalOffsetY = 0;
 
-		[HideInInspector]
-		public float totalOffsetX = 0;
+		[HideInInspector] public float totalOffsetX = 0;
 
-		[HideInInspector]
-		public float resetSpeed = 1;
+		[HideInInspector] public float resetSpeed = 1;
 
-		[HideInInspector]
-		public float resetDelay = 0;
+		[HideInInspector] public float resetDelay = 0;
 
-		[HideInInspector]
-		public float maxKickback = 0;
+		[HideInInspector] public float maxKickback = 0;
 
-		[HideInInspector]
-		public float xDecrease = 0;
+		[HideInInspector] public float xDecrease = 0;
 
 		public float minimumX = -360F;
 
@@ -73,21 +61,16 @@ namespace ooparts.fpsctorcs
 
 		//added by dw to pause camera when in store
 
-		[HideInInspector]
-		public static bool freeze = false;
+		[HideInInspector] public static bool freeze = false;
 
-		[HideInInspector]
-		public bool individualFreeze = false;
+		[HideInInspector] public bool individualFreeze = false;
 
 
-		[HideInInspector]
-		public float rotationX = 0F;
-		[HideInInspector]
-		public float rotationY = 0F;
+		[HideInInspector] public float rotationX = 0F;
+		[HideInInspector] public float rotationY = 0F;
 
 
-		[HideInInspector]
-		public Quaternion originalRotation;
+		[HideInInspector] public Quaternion originalRotation;
 
 		private Quaternion[] temp;
 		private Quaternion smoothRotation;
@@ -95,7 +78,7 @@ namespace ooparts.fpsctorcs
 
 		public void Freeze()
 		{
-			freeze = true;			
+			freeze = true;
 		}
 
 
@@ -120,7 +103,6 @@ namespace ooparts.fpsctorcs
 
 			if (axes == RotationAxes.MouseX)
 			{
-
 				rotationX += InputDB.GetAxis("Mouse X") * sensitivityX;
 
 				float xDecrease;
@@ -136,11 +118,9 @@ namespace ooparts.fpsctorcs
 
 				if (resetDelay > 0)
 				{
-
 					xDecrease = 0;
 
 					resetDelay = Mathf.Clamp(resetDelay - Time.deltaTime, 0, resetDelay);
-
 				}
 
 				if (Random.value < .5)
@@ -148,25 +128,19 @@ namespace ooparts.fpsctorcs
 
 				if ((totalOffsetX < maxKickback && totalOffsetX >= 0) || (totalOffsetX > -maxKickback && totalOffsetX <= 0))
 				{
-
 					totalOffsetX += offsetX;
-
 				}
 				else
 				{
-
 					//offsetX = 0;
 					resetDelay *= .5f;
-
 				}
 
 				rotationX = ClampAngle(rotationX, minimumX, maximumX) + offsetX - xDecrease;
 
 				if ((Input.GetAxis("Mouse X") * sensitivityX) < 0)
 				{
-
 					totalOffsetX += Input.GetAxis("Mouse X") * sensitivityX;
-
 				}
 
 				rotationX += Mathf.Sin(Time.time) * idleSway;
@@ -191,47 +165,37 @@ namespace ooparts.fpsctorcs
 				{
 					transform.localRotation = tRotation;
 				}
-
 			}
 
 			else
 			{
-
 				rotationY += InputDB.GetAxis("Mouse Y") * sensitivityY;
 
 				float yDecrease = Mathf.Clamp(resetSpeed * Time.deltaTime, 0, totalOffsetY);
 
 				if (resetDelay > 0)
 				{
-
 					yDecrease = 0;
 
 					resetDelay = Mathf.Clamp(resetDelay - Time.deltaTime, 0, resetDelay);
-
 				}
 
 				if (totalOffsetY < maxKickback)
 				{
-
 					totalOffsetY += offsetY;
-
 				}
 				else
 				{
-
 					offsetY = 0;
 
 					resetDelay *= .5f;
-
 				}
 
 				rotationY = ClampAngle(rotationY, minimumY, maximumY) + offsetY - yDecrease;
 
 				if ((Input.GetAxis("Mouse Y") * sensitivityY) < 0)
 				{
-
 					totalOffsetY += Input.GetAxis("Mouse Y") * sensitivityY;
-
 				}
 
 				rotationY += Mathf.Sin(Time.time) * idleSway;
@@ -254,21 +218,19 @@ namespace ooparts.fpsctorcs
 				}
 				else
 				{
-					transform.localEulerAngles = new Vector3(tRotation.x, transform.localEulerAngles.y, transform.localEulerAngles.z); ;
+					transform.localEulerAngles = new Vector3(tRotation.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+					;
 				}
-
 			}
 
 			offsetY = 0;
 
 			offsetX = 0;
-
 		}
 
 
 		void Start()
 		{
-
 			// Make the rigid body not change rotation
 
 			if (GetComponent<Rigidbody>())
@@ -285,13 +247,11 @@ namespace ooparts.fpsctorcs
 			{
 				smoothFactor = 1;
 			}
-
 		}
 
 
 		public static float ClampAngle(float angle, float min, float max)
 		{
-
 			if (angle < -360F)
 
 				angle += 360F;
@@ -301,41 +261,36 @@ namespace ooparts.fpsctorcs
 				angle -= 360F;
 
 			return Mathf.Clamp(angle, min, max);
-
 		}
 
 
 		public void Aiming(float zoom)
 		{
-
 			sensitivityX = sensitivityX / zoom;
 
 			sensitivityY = sensitivityY / zoom;
-
 		}
 
 		public void StopAiming()
 		{
-
 			sensitivityX = sensitivityStandardX;
 
 			sensitivityY = sensitivityStandardY;
-
 		}
 
 		public void LockIt(int min, int max)
 		{
 			if (axes == RotationAxes.MouseX)
 			{
-				maxStored = (int)maximumX;
-				minStored = (int)minimumX;
+				maxStored = (int) maximumX;
+				minStored = (int) minimumX;
 				maximumX = rotationX + max;
 				minimumX = rotationX - min;
 			}
 			else
 			{
-				maxStored = (int)maximumY;
-				minStored = (int)minimumY;
+				maxStored = (int) maximumY;
+				minStored = (int) minimumY;
 				maximumY = rotationY + max;
 				minimumY = rotationY - min;
 			}
@@ -345,15 +300,15 @@ namespace ooparts.fpsctorcs
 		{
 			if (axes == RotationAxes.MouseX)
 			{
-				maxStored = (int)maximumX;
-				minStored = (int)minimumX;
+				maxStored = (int) maximumX;
+				minStored = (int) minimumX;
 				maximumX = max;
 				minimumX = min;
 			}
 			else
 			{
-				maxStored = (int)maximumY;
-				minStored = (int)minimumY;
+				maxStored = (int) maximumY;
+				minStored = (int) minimumY;
 				maximumY = max;
 				minimumY = min;
 			}

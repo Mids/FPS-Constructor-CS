@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class WeaponDisplay : MonoBehaviour
@@ -17,6 +18,7 @@ namespace ooparts.fpsctorcs
 			WeaponInfo = GetComponent<WeaponInfo>();
 			display = false;
 		}
+
 		public void Select()
 		{
 			display = true;

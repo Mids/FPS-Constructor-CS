@@ -4,10 +4,16 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class CrosshairColor : MonoBehaviour 
+	public class CrosshairColor : MonoBehaviour
 	{
 		//Custom editor 
-		public enum crosshairTypes { Friend, Foe, Other }
+		public enum crosshairTypes
+		{
+			Friend,
+			Foe,
+			Other
+		}
+
 		public crosshairTypes crosshairType;
 
 		private GameObject weaponCam;

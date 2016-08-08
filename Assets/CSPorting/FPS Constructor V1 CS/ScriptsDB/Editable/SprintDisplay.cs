@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class SprintDisplay : MonoBehaviour
 	{
-
-		[HideInInspector]
-		public AimMode aim;
+		[HideInInspector] public AimMode aim;
 
 		void Start()
 		{

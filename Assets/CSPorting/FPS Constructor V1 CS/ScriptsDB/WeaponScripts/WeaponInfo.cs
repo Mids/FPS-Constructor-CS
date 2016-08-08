@@ -23,28 +23,23 @@ namespace ooparts.fpsctorcs
 		public bool owned = false;
 		public bool locked = false;
 		public weaponClasses weaponClass;
-		[HideInInspector]
-		public string weaponClassName;
+		[HideInInspector] public string weaponClassName;
 		public string gunDescription;
 		public string lockedDescription = "Weapon Locked";
 		public string gunName;
 		public int buyPrice;
 		public int ammoPrice;
 		public float sellPrice;
-		[HideInInspector]
-		public float sellPriceUpgraded;
+		[HideInInspector] public float sellPriceUpgraded;
 		public Texture icon; //Icon should be X by Y pixels for store.
-		[HideInInspector]
-		public bool[] upgradesApplied;
+		[HideInInspector] public bool[] upgradesApplied;
 
-		[HideInInspector]
-		public Upgrade[] upgrades;
+		[HideInInspector] public Upgrade[] upgrades;
 
 		private Upgrade[] storeUpgrades;
 		public bool canBeSold = true; //Can this weapon be sold (it's often best to have one base weapon which cannot)
 
-		[HideInInspector]
-		public GunScript gun;
+		[HideInInspector] public GunScript gun;
 
 		private GunScript[] guns;
 

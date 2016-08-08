@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class InputDB : MonoBehaviour
 	{
-
 		public static InputDB thisObj;
 		public InputItem[] buttons;
 		public InputItem[] axes;

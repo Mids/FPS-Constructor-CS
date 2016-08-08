@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class GunLook : MonoBehaviour
 	{
-
 		private float sensitivityX = 15F;
 		private float sensitivityY = 15F;
 		public float sensitivityStandardX = 15F;
@@ -16,10 +16,8 @@ namespace ooparts.fpsctorcs
 		public float sensitivityAimingY = 15F;
 		public float retSensitivity = -.5F;
 
-		[HideInInspector]
-		public float minimumX = 5F;
-		[HideInInspector]
-		public float maximumX = 3F;
+		[HideInInspector] public float minimumX = 5F;
+		[HideInInspector] public float maximumX = 3F;
 
 		public float xRange = 5F;
 		public float xRangeAim = 3F;
@@ -57,12 +55,9 @@ namespace ooparts.fpsctorcs
 		private float maximumY = 60F;
 
 		//added by dw to pause camera when in store
-		[HideInInspector]
-		public bool freeze = false;
-		[HideInInspector]
-		public float rotationX = 0F;
-		[HideInInspector]
-		public float rotationY = 0F;
+		[HideInInspector] public bool freeze = false;
+		[HideInInspector] public float rotationX = 0F;
+		[HideInInspector] public float rotationY = 0F;
 		public float rotationZ = 0F;
 
 		private Vector3 startPos;
@@ -161,17 +156,15 @@ namespace ooparts.fpsctorcs
 				if (!AimMode.staticAiming)
 				{
 					float xPos = Mathf.Clamp(relVelocity.x * xPosMoveSensitivity, -xPosMoveRange * s, xPosMoveRange * s);
-					posOffset.x = Mathf.Lerp(posOffset.x, xPos, Time.deltaTime * xPosAdjustSpeed);// + startPos.x;
+					posOffset.x = Mathf.Lerp(posOffset.x, xPos, Time.deltaTime * xPosAdjustSpeed); // + startPos.x;
 
 					float zPos = Mathf.Clamp(relVelocity.z * zPosMoveSensitivity, -zPosMoveRange * s, zPosMoveRange * s);
-					posOffset.z = Mathf.Lerp(posOffset.z, zPos, Time.deltaTime * zPosAdjustSpeed);// + startPos.z;
-
+					posOffset.z = Mathf.Lerp(posOffset.z, zPos, Time.deltaTime * zPosAdjustSpeed); // + startPos.z;
 				}
 				else
 				{
-					posOffset.x = Mathf.Lerp(posOffset.x, 0, Time.deltaTime * xPosAdjustSpeed * 3);// + startPos.x;
-					posOffset.z = Mathf.Lerp(posOffset.z, 0, Time.deltaTime * zPosAdjustSpeed * 3);// + startPos.z;
-
+					posOffset.x = Mathf.Lerp(posOffset.x, 0, Time.deltaTime * xPosAdjustSpeed * 3); // + startPos.x;
+					posOffset.z = Mathf.Lerp(posOffset.z, 0, Time.deltaTime * zPosAdjustSpeed * 3); // + startPos.z;
 				}
 
 				//Apply Jostle
@@ -218,6 +211,7 @@ namespace ooparts.fpsctorcs
 			sensitivityZ = sensitivityAimingZ;
 			actualZRange = zRangeAim;
 		}
+
 		public void StopAiming()
 		{
 			sensitivityX = sensitivityStandardX;
@@ -229,7 +223,6 @@ namespace ooparts.fpsctorcs
 			maximumY = yRange;
 			sensitivityZ = sensitivityStandardZ;
 			actualZRange = zRange;
-
 		}
 	}
 }

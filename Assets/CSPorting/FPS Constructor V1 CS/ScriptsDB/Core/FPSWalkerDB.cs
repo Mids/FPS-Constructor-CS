@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
-	[RequireComponent(typeof(CharacterController))]
+	[RequireComponent(typeof (CharacterController))]
 	public class FPSWalkerDB : MonoBehaviour
 	{
 		public float speed = 6.0f;
@@ -115,7 +116,6 @@ namespace ooparts.fpsctorcs
 						NormalSpeed();
 					}
 				}
-
 			}
 
 			// Apply gravity
@@ -182,7 +182,6 @@ namespace ooparts.fpsctorcs
 				crouching = false;
 				this.GetComponent<BoxCollider>().size += new Vector3(0, crouchDeltaHeight, 0);
 				this.GetComponent<BoxCollider>().center += new Vector3(0, crouchDeltaHeight, 0);
-
 			}
 			if (canSprint)
 			{

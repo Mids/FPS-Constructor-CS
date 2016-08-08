@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class UseEffects : MonoBehaviour 
+	public class UseEffects : MonoBehaviour
 	{
 		public int setIndex;
 		public EffectsManager effectsManagerScript;

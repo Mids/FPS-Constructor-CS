@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class PlayerHealth : MonoBehaviour
 	{
-		[HideInInspector]
-		public float health = 100;
+		[HideInInspector] public float health = 100;
 		public float maxHealth = 100;
 		public float hitKickBack;
 		public float hitKickBackX;
@@ -42,8 +42,8 @@ namespace ooparts.fpsctorcs
 			mainCam = PlayerWeapons.mainCam;
 			pWeapons = this.GetComponentInChildren<PlayerWeapons>();
 			health = maxHealth;
-
 		}
+
 		public void ApplyFallDamage(float d)
 		{
 			if (dead)
@@ -86,7 +86,7 @@ namespace ooparts.fpsctorcs
 				return;
 
 			float tempFloat;
-			tempFloat = (float)Arr[0];
+			tempFloat = (float) Arr[0];
 			health = Mathf.Clamp(health - tempFloat, 0, health);
 			HitEffects(tempFloat);
 

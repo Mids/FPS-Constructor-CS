@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
+
 namespace ooparts.fpsctorcs
 {
 	public class SelectTouch : MonoBehaviour
 	{
-
 		public InputItem input;
 		public Vector2 pos1; //position of button 1
 		public Vector2 pos2; //position of button 2
@@ -23,7 +23,6 @@ namespace ooparts.fpsctorcs
 
 		public void UpdateInput()
 		{
-
 			//are we touching one of the buttons this frame? Used in loop
 			bool touching1 = false;
 			bool touching2 = false;
@@ -54,21 +53,24 @@ namespace ooparts.fpsctorcs
 			}
 
 			if (t1 && !touched1)
-			{ //we hit the first button
+			{
+				//we hit the first button
 				CycleWeapon(-1); //previous weapon
 				WeaponSelector.selectedWeapon = selected;
 				touched1 = true;
 				input.down = true;
 			}
 			else if (t2 && !touched2)
-			{ //we hit the second button
+			{
+				//we hit the second button
 				CycleWeapon(1);
 				WeaponSelector.selectedWeapon = selected;
 				touched2 = true;
 				input.down = true;
 			}
 			else if (!(t1 || t2))
-			{ //We are not touching
+			{
+				//We are not touching
 				input.down = false;
 				touched1 = false;
 				touched2 = false;
