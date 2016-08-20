@@ -21,7 +21,7 @@ namespace ooparts.fpsctorcs
 		void OnEnable()
 		{
 		}
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 
 			//If our allowed array is the wrong Length, we must correct it
