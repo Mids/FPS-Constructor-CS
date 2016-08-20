@@ -8,7 +8,7 @@ namespace ooparts.fpsctorcs
 	class GunLookEditor : Editor
 	{
 		public GunLook Instance { get { return (GunLook)target; } }
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 			EditorGUILayout.Separator();

@@ -80,7 +80,7 @@ namespace ooparts.fpsctorcs
 				}
 			}
 		}
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			//EditorGUIUtility.LookLikeInspector();
 			Instance.selectedScript = (EffectsAndPenetrationWizard.wizardScripts)EditorGUILayout.EnumPopup("   Effect: ", Instance.selectedScript);

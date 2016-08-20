@@ -8,7 +8,8 @@ namespace ooparts.fpsctorcs
 	public class MovementValuesEditor : Editor
 	{
 		public MovementValues Instance { get { return (MovementValues)target; } }
-	void  OnInspectorGUI (){
+		public override void OnInspectorGUI()
+		{
 		if(Instance.CM == null){
 			Instance.CM = Instance.gameObject.GetComponent<CharacterMotorDB>();
 		}

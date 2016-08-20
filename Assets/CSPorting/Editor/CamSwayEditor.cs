@@ -8,7 +8,7 @@ namespace ooparts.fpsctorcs
 	public class CamSwayEditor : Editor
 	{
 		public CamSway Instance { get { return (CamSway)target; } }
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			/*	if(Instance.CM == null){
 					Instance.CM = Instance.gameObject.GetComponent<"CharacterMotorDB">();

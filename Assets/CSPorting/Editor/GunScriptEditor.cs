@@ -12,7 +12,7 @@ namespace ooparts.fpsctorcs
 		public bool gunDisplayed = false;
 		public GunScript.gunTypes gunTipo = GunScript.gunTypes.hitscan;
 
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 			//EditorGUILayout.BeginVertical();

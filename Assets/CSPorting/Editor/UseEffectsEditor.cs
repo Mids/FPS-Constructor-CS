@@ -11,7 +11,7 @@ namespace ooparts.fpsctorcs
 		EffectsManager manager;
 		int prevIndex;
 
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			manager = (EffectsManager)FindObjectOfType(typeof(EffectsManager));
 			if (manager != null)

@@ -8,7 +8,7 @@ namespace ooparts.fpsctorcs
 	public class SmartCrosshairEditor : Editor
 	{
 		public SmartCrosshair Instance { get { return (SmartCrosshair)target; } }
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 
 
