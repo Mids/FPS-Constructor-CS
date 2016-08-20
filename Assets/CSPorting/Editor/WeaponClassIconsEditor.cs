@@ -9,7 +9,7 @@ namespace ooparts.fpsctorcs
 	{
 		public WeaponClassIcons Instance { get { return (WeaponClassIcons)target; } }
 
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 			EditorGUILayout.BeginVertical();
