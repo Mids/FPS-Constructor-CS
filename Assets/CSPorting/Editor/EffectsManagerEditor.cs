@@ -29,7 +29,7 @@ namespace ooparts.fpsctorcs
 			}
 			nameArray[nameArray.Length - 1] = "New Set";
 		}
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			bool markForDelete = false;
 
