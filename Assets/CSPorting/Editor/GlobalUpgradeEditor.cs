@@ -4,13 +4,13 @@ using System.Collections;
 using ooparts.fpsctorcs;
 namespace ooparts.fpsctorcs
 {
-	[CustomEditor(typeof(GlobalUpgrade))]
+	[CustomEditor(typeof(ooparts.fpsctorcs.GlobalUpgrade))]
 
-	class GlobalUpgradeEditor : Editor
+	public class GlobalUpgradeEditor : Editor
 	{
 		public GlobalUpgrade Instance { get { return (GlobalUpgrade)target; } }
 		//PlayerWeapons player;
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 
