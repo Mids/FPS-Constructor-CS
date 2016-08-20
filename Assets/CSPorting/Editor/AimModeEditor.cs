@@ -11,7 +11,7 @@ namespace ooparts.fpsctorcs
 		bool foldout;
 		bool foldout1;
 
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 			EditorGUILayout.BeginVertical();
