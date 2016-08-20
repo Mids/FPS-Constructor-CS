@@ -9,7 +9,7 @@ namespace ooparts.fpsctorcs
 	{
 		public GunChildAnimation Instance { get { return (GunChildAnimation)target; } }
 
-		void OnInspectorGUI()
+		public override void OnInspectorGUI()
 		{
 			EditorGUIUtility.LookLikeInspector();
 			EditorGUILayout.BeginVertical();
