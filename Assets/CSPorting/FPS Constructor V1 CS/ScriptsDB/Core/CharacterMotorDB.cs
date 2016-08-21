@@ -58,6 +58,7 @@ namespace ooparts.fpsctorcs
 		// for the jump button directly so this script can also be used by AIs.
 		[System.NonSerialized] public bool inputJump = false;
 
+		[System.Serializable]
 		public class CharacterMotorDBMovement
 		{
 			// The maximum horizontal speed when moving
@@ -132,6 +133,7 @@ namespace ooparts.fpsctorcs
 		}
 
 		// We will contain all the jumping related variables in one helper class for clarity.
+		[System.Serializable]
 		public class CharacterMotorDBJumping
 		{
 			// Can the character jump?
@@ -170,6 +172,7 @@ namespace ooparts.fpsctorcs
 
 		public CharacterMotorDBJumping jumping = new CharacterMotorDBJumping();
 
+		[System.Serializable]
 		public class CharacterMotorDBMovingPlatform
 		{
 			public bool enabled = true;
@@ -197,6 +200,7 @@ namespace ooparts.fpsctorcs
 
 		public CharacterMotorDBMovingPlatform movingPlatform = new CharacterMotorDBMovingPlatform();
 
+		[System.Serializable]
 		public class CharacterMotorDBSliding
 		{
 			// Does the character slide on too steep surfaces?
