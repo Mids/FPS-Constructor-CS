@@ -36,6 +36,8 @@ function OnGUI () {
 			s = "(Already Equipped)";
 		}
 		var pos : Vector2 = Camera.main.WorldToScreenPoint(transform.position);
-		GUI.Box(Rect(pos.x-77.5, Screen.height-pos.y-(Screen.height/4)-52.5,155, 105), info.WeaponInfo.gunName + "\n \n" + info.WeaponInfo.gunDescription + "\n" + s);
+		if (info && info.WeaponInfo) {
+		    GUI.Box(Rect(pos.x-77.5, Screen.height-pos.y-(Screen.height/4)-52.5,155, 105), info.WeaponInfo.gunName + "\n \n" + info.WeaponInfo.gunDescription + "\n" + s);
+		}
 	}
 }

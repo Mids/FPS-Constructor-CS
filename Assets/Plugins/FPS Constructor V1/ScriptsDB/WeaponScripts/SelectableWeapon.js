@@ -17,7 +17,10 @@ var ammo : int = 0;
 var upgradesApplied : boolean[];
 
 function Start(){
-	WeaponInfo = weapon.GetComponent("WeaponInfo") as WeaponInfo;
+    Debug.Log(weapon);
+    Debug.Log(weapon.GetComponent("WeaponInfo"));
+    WeaponInfo = weapon.GetComponent("WeaponInfo") as WeaponInfo;
+    Debug.Log(WeaponInfo);
 }
 
 function Interact(){
