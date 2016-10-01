@@ -9,10 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 457500}
   - 143: {fileID: 14351908}
-  - 114: {fileID: 11491208}
-  - 114: {fileID: 11482064}
-  - 114: {fileID: 11415538}
-  - 114: {fileID: 11417498}
   - 82: {fileID: 8227654}
   - 114: {fileID: 11496562}
   - 114: {fileID: 11448146}
@@ -611,35 +607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 0.3
---- !u!114 &11415538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0e721cbea4446909e2fbae312a899b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  hitKickBack: 10
-  hitKickBackX: 3
-  kickMaxY: 15
-  kickMaxX: 5
-  kickInt: 0.3
-  redWindow: {fileID: 2800000, guid: 1142a306f2a134642891a5640c21f6e7, type: 3}
-  redFlashTime: 1
-  directionalFlashTime: 1
-  hitSounds:
-  - {fileID: 8300000, guid: ddf36ed13f8124965b31a27b9c5f8127, type: 3}
-  landSounds:
-  - {fileID: 8300000, guid: 5adbd195fd3e24c9a918210f531e97e3, type: 3}
-  hitSoundInterval: 0.6
-  hitSoundVolume: 1
-  deathSound: {fileID: 8300000, guid: 9baba76918c0347e1b453d9b55d997e4, type: 3}
-  directionalTexture: {fileID: 100000, guid: b47effc3f2a5840af82518f0f688d56d, type: 2}
 --- !u!114 &11417446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,103 +626,6 @@ MonoBehaviour:
   soundClip: {fileID: 0}
   playDex: 0
   surface: {fileID: 0}
---- !u!114 &11417498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dda2c13bd37a4eb2943c3e96f5444d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canControl: 1
-  useFixedUpdate: 1
-  crouchDeltaHeight: 0.75
-  proneDeltaHeight: 1.5
-  useProne: 1
-  stopCrouching: 0
-  stopProne: 0
-  velocityFactor: 2
-  camSpeed: 8
-  jumpSound: {fileID: 0}
-  jumpSoundVolume: 0.2
-  landSound: {fileID: 8300000, guid: 88bf0a72ff6fd43c482268c5c1e28557, type: 3}
-  landSoundVolume: 0.13
-  proneLandSound: {fileID: 8300000, guid: 88bf0a72ff6fd43c482268c5c1e28557, type: 3}
-  proneLandSoundVolume: 0.1
-  hitProne: 0
-  proneFrame: 0
-  aim: 0
-  movement:
-    maxForwardSpeed: 10
-    defaultForwardSpeed: 10
-    maxCrouchSpeed: 6
-    maxSprintSpeed: 19
-    minSprintSpeed: 10
-    maxAimSpeed: 4
-    maxProneSpeed: 4
-    maxSidewaysSpeed: 10
-    defaultSidewaysSpeed: 10
-    sprintSidewaysSpeed: 15
-    crouchSidewaysSpeed: 6
-    aimSidewaysSpeed: 4
-    proneSidewaysSpeed: 3
-    maxBackwardsSpeed: 10
-    defaultBackwardsSpeed: 10
-    crouchBackwardsSpeed: 6
-    aimBackwardsSpeed: 4
-    proneBackwardsSpeed: 2
-    slopeSpeedMultiplier:
-      serializedVersion: 2
-      m_Curve:
-      - time: -90
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 90
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    maxGroundAcceleration: 30
-    defaultGroundAcceleration: 30
-    sprintGroundAcceleration: 500
-    maxAirAcceleration: 20
-    defaultAirAcceleration: 20
-    sprintAirAcceleration: 25
-    useDive: 1
-    crouchedTime: 0
-    proneHoldTime: 0.3
-    gravity: 10
-    maxFallSpeed: 100
-    fallDamageStart: 30
-    fallDamageEnd: 70
-    fallDamageMax: 100
-  jumping:
-    enabled: 1
-    baseHeight: 1
-    extraHeight: 1
-    perpAmount: 0
-    steepPerpAmount: 0.5
-  movingPlatform:
-    enabled: 1
-    movementTransfer: 2
-  sliding:
-    enabled: 1
-    slidingSpeed: 15
-    sidewaysControl: 1
-    speedControl: 0.4
 --- !u!114 &11434942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -873,28 +743,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4b6411b38432f4992a4db6ad0f8adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultForwardSpeed: 10
-  maxCrouchSpeed: 6
-  maxSprintSpeed: 13
-  minSprintSpeed: 10
-  maxAimSpeed: 4
-  maxProneSpeed: 4
-  defaultSidewaysSpeed: 10
-  sprintSidewaysSpeed: 15
-  crouchSidewaysSpeed: 6
-  aimSidewaysSpeed: 4
-  proneSidewaysSpeed: 2
-  defaultBackwardsSpeed: 10
-  crouchBackwardsSpeed: 6
-  aimBackwardsSpeed: 4
-  proneBackwardsSpeed: 2
+  defaultForwardSpeed: 6
+  maxCrouchSpeed: 3
+  maxSprintSpeed: 9
+  minSprintSpeed: 5
+  maxAimSpeed: 1.5
+  maxProneSpeed: 1.5
+  defaultSidewaysSpeed: 6
+  sprintSidewaysSpeed: 9
+  crouchSidewaysSpeed: 3
+  aimSidewaysSpeed: 1.5
+  proneSidewaysSpeed: 1.5
+  defaultBackwardsSpeed: 6
+  crouchBackwardsSpeed: 3
+  aimBackwardsSpeed: 1.5
+  proneBackwardsSpeed: 1.5
   sprintFoldout: 0
   crouchFoldout: 0
   defaultFoldout: 0
   proneFoldout: 0
   aimFoldout: 0
-  jumpFoldout: 0
-  CM: {fileID: 0}
+  jumpFoldout: 1
+  CM: {fileID: 11473042}
   sprintDuration: 5
   sprintAddStand: 1
   sprintAddWalk: 0.3
@@ -977,20 +847,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  hitKickBack: 0
-  hitKickBackX: 0
-  kickMaxY: 0
-  kickMaxX: 0
-  kickInt: 0
-  redWindow: {fileID: 0}
-  redFlashTime: 0
-  directionalFlashTime: 0
-  hitSounds: []
-  landSounds: []
+  hitKickBack: 10
+  hitKickBackX: 3
+  kickMaxY: 15
+  kickMaxX: 5
+  kickInt: 0.3
+  redWindow: {fileID: 2800000, guid: aaa2b28a89a5b864cabdfda031a227b5, type: 3}
+  redFlashTime: 1
+  directionalFlashTime: 1
+  hitSounds:
+  - {fileID: 8300000, guid: 451070f3f597d154bb713771d5cf2afd, type: 3}
+  landSounds:
+  - {fileID: 8300000, guid: 83785a264ed0bd14e9315f57d8a8d49b, type: 3}
   hitSoundInterval: 0.6
   hitSoundVolume: 1
-  deathSound: {fileID: 0}
-  directionalTexture: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 12fd5bd8e2a4ed14ca7be9c0e7eceed8, type: 3}
+  directionalTexture: {fileID: 175122, guid: 55bb04575f7823f4e9da2b8827723c4e, type: 2}
 --- !u!114 &11473042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1062,22 +934,22 @@ MonoBehaviour:
       m_RotationOrder: 4
     maxGroundAcceleration: 30
     defaultGroundAcceleration: 30
-    sprintGroundAcceleration: 50
+    sprintGroundAcceleration: 500
     maxAirAcceleration: 20
     defaultAirAcceleration: 20
     sprintAirAcceleration: 25
-    useDive: 0
+    useDive: 1
     crouchedTime: 0
     proneHoldTime: 0.3
     gravity: 10
-    maxFallSpeed: 20
-    fallDamageStart: 9
-    fallDamageEnd: 50
+    maxFallSpeed: 100
+    fallDamageStart: 30
+    fallDamageEnd: 70
     fallDamageMax: 100
   jumping:
     enabled: 1
     baseHeight: 1
-    extraHeight: 4.1
+    extraHeight: 1
     perpAmount: 0
     steepPerpAmount: 0.5
   movingPlatform:
@@ -1118,45 +990,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim: {fileID: 0}
---- !u!114 &11482064
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b453d564d1ec401f8e2f91832bf5323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultForwardSpeed: 6
-  maxCrouchSpeed: 3
-  maxSprintSpeed: 9
-  minSprintSpeed: 5
-  maxAimSpeed: 1.5
-  maxProneSpeed: 1.5
-  defaultSidewaysSpeed: 6
-  sprintSidewaysSpeed: 9
-  crouchSidewaysSpeed: 3
-  aimSidewaysSpeed: 1.5
-  proneSidewaysSpeed: 1.5
-  defaultBackwardsSpeed: 6
-  crouchBackwardsSpeed: 3
-  aimBackwardsSpeed: 1.5
-  proneBackwardsSpeed: 1.5
-  sprintFoldout: 0
-  crouchFoldout: 0
-  defaultFoldout: 0
-  proneFoldout: 0
-  aimFoldout: 0
-  jumpFoldout: 0
-  CM: {fileID: 11417498}
-  sprintDuration: 5
-  sprintAddStand: 1
-  sprintAddWalk: 0.3
-  sprintMin: 1
-  recoverDelay: 0.7
-  exhaustedDelay: 1
 --- !u!114 &11485784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1243,42 +1076,6 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 0c34b47ac9cf5445cb62494670a85c56, type: 3}
   hitEffectFoldout: 0
   crosshairRange: 200
---- !u!114 &11491208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28333d070563441a6b15e42732ff2c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axes: 0
-  sensitivityX: 15
-  sensitivityY: 15
-  sensitivityStandardX: 13
-  sensitivityStandardY: 13
-  offsetY: 0
-  offsetX: 0
-  totalOffsetY: 0
-  totalOffsetX: 0
-  resetSpeed: 10
-  resetDelay: 0.1
-  maxKickback: 0
-  xDecrease: 0
-  minimumX: -360
-  maximumX: 360
-  minimumY: 0
-  maximumY: 0
-  smooth: 1
-  smoothFactor: 1.1
-  iterations: 50
-  idleSway: 0.001
-  individualFreeze: 0
-  rotationX: 0
-  rotationY: 0
-  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11495272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1359,9 +1156,9 @@ MonoBehaviour:
   minimumY: -60
   maximumY: 60
   smooth: 1
-  smoothFactor: 2
-  iterations: 10
-  idleSway: 0
+  smoothFactor: 1.1
+  iterations: 50
+  idleSway: 0.001
   individualFreeze: 0
   rotationX: 0
   rotationY: 0
