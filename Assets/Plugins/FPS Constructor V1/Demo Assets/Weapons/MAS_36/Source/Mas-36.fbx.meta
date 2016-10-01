@@ -3,6 +3,148 @@ guid: 0ff83201a2d4c4faeb99f08b9c3be099
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: Arm
+    100002: Arm.2
+    100004: Ball
+    100006: Barrel
+    100008: Body
+    100010: Bolt
+    100012: Box
+    100014: Box.1
+    100016: Box.2
+    100018: Cylinder
+    100020: Cylinder.1
+    100022: Cylinder.3.split
+    100024: Grip
+    100026: Grip_2
+    100028: Joint
+    100030: Joint.1
+    100032: Joint.1.1
+    100034: Joint.10
+    100036: Joint.10.1
+    100038: Joint.11
+    100040: Joint.11.1
+    100042: Joint.12
+    100044: Joint.12.1
+    100046: Joint.13
+    100048: Joint.13.1
+    100050: Joint.14
+    100052: Joint.14.1
+    100054: Joint.15
+    100056: Joint.15.1
+    100058: Joint.16
+    100060: Joint.16.1
+    100062: Joint.17
+    100064: Joint.2
+    100066: Joint.2.1
+    100068: Joint.3
+    100070: Joint.3.1
+    100072: Joint.4
+    100074: Joint.4.1
+    100076: Joint.5
+    100078: Joint.5.1
+    100080: Joint.6
+    100082: Joint.6.1
+    100084: Joint.7
+    100086: Joint.7.1
+    100088: Joint.8
+    100090: Joint.8.1
+    100092: Joint.9
+    100094: Joint.9.1
+    100096: Left.1
+    100098: Loop
+    100100: Magazine
+    100102: MAS-36
+    100104: //RootNode
+    100106: Rail
+    100108: Right
+    100110: Stock
+    100112: UnderBarrel
+    400000: Arm
+    400002: Arm.2
+    400004: Ball
+    400006: Barrel
+    400008: Body
+    400010: Bolt
+    400012: Box
+    400014: Box.1
+    400016: Box.2
+    400018: Cylinder
+    400020: Cylinder.1
+    400022: Cylinder.3.split
+    400024: Grip
+    400026: Grip_2
+    400028: Joint
+    400030: Joint.1
+    400032: Joint.1.1
+    400034: Joint.10
+    400036: Joint.10.1
+    400038: Joint.11
+    400040: Joint.11.1
+    400042: Joint.12
+    400044: Joint.12.1
+    400046: Joint.13
+    400048: Joint.13.1
+    400050: Joint.14
+    400052: Joint.14.1
+    400054: Joint.15
+    400056: Joint.15.1
+    400058: Joint.16
+    400060: Joint.16.1
+    400062: Joint.17
+    400064: Joint.2
+    400066: Joint.2.1
+    400068: Joint.3
+    400070: Joint.3.1
+    400072: Joint.4
+    400074: Joint.4.1
+    400076: Joint.5
+    400078: Joint.5.1
+    400080: Joint.6
+    400082: Joint.6.1
+    400084: Joint.7
+    400086: Joint.7.1
+    400088: Joint.8
+    400090: Joint.8.1
+    400092: Joint.9
+    400094: Joint.9.1
+    400096: Left.1
+    400098: Loop
+    400100: Magazine
+    400102: MAS-36
+    400104: //RootNode
+    400106: Rail
+    400108: Right
+    400110: Stock
+    400112: UnderBarrel
+    2300000: Ball
+    2300002: Barrel
+    2300004: Body
+    2300006: Box.2
+    2300008: Cylinder
+    2300010: Cylinder.1
+    2300012: Cylinder.3.split
+    2300014: Grip
+    2300016: Grip_2
+    2300018: Loop
+    2300020: Magazine
+    2300022: Rail
+    2300024: Stock
+    2300026: UnderBarrel
+    3300000: Ball
+    3300002: Barrel
+    3300004: Body
+    3300006: Box.2
+    3300008: Cylinder
+    3300010: Cylinder.1
+    3300012: Cylinder.3.split
+    3300014: Grip
+    3300016: Grip_2
+    3300018: Loop
+    3300020: Magazine
+    3300022: Rail
+    3300024: Stock
+    3300026: UnderBarrel
     4300000: Box.1
     4300002: Box
     4300004: Body
@@ -19,6 +161,10 @@ ModelImporter:
     4300026: Stock
     4300028: Magazine
     4300030: Cylinder.1
+    7400000: Take 1
+    11100000: //RootNode
+    13700000: Box
+    13700002: Box.1
   materials:
     importMaterials: 1
     materialName: 3
@@ -26,7 +172,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 

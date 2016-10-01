@@ -3,6 +3,186 @@ guid: 21acc3fcfe6be43aba33e173218a102a
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: Arm
+    100002: Arm.1
+    100004: Arm.2
+    100006: Arm.M203
+    100008: Barrel
+    100010: Body
+    100012: Box
+    100014: Box.1
+    100016: Box.1.1
+    100018: CockingHandle
+    100020: Cylinder
+    100022: Cylinder.1
+    100024: Cylinder.2
+    100026: Cylinder.3
+    100028: Cylinder.4
+    100030: FAL
+    100032: FireSelector
+    100034: //RootNode
+    100036: FrontSight
+    100038: Grenade
+    100040: Grip
+    100042: Joint
+    100044: Joint.1
+    100046: Joint.1.1
+    100048: Joint.10
+    100050: Joint.10.1
+    100052: Joint.11
+    100054: Joint.11.1
+    100056: Joint.12
+    100058: Joint.12.1
+    100060: Joint.13
+    100062: Joint.13.1
+    100064: Joint.14
+    100066: Joint.14.1
+    100068: Joint.15
+    100070: Joint.15.1
+    100072: Joint.16
+    100074: Joint.16.1
+    100076: Joint.17
+    100078: Joint.2
+    100080: Joint.2.1
+    100082: Joint.3
+    100084: Joint.3.1
+    100086: Joint.4
+    100088: Joint.4.1
+    100090: Joint.5
+    100092: Joint.5.1
+    100094: Joint.6
+    100096: Joint.6.1
+    100098: Joint.7
+    100100: Joint.7.1
+    100102: Joint.8
+    100104: Joint.8.1
+    100106: Joint.9
+    100108: Joint.9.1
+    100110: M203
+    100112: M203.1
+    100114: Magazine
+    100116: Rail
+    100118: RearSight
+    100120: RearSight.1
+    100122: Screw
+    100124: Screw.1
+    100126: Screw.2
+    100128: ScrewLarge
+    100130: Stock
+    400000: Arm
+    400002: Arm.1
+    400004: Arm.2
+    400006: Arm.M203
+    400008: Barrel
+    400010: Body
+    400012: Box
+    400014: Box.1
+    400016: Box.1.1
+    400018: CockingHandle
+    400020: Cylinder
+    400022: Cylinder.1
+    400024: Cylinder.2
+    400026: Cylinder.3
+    400028: Cylinder.4
+    400030: FAL
+    400032: FireSelector
+    400034: //RootNode
+    400036: FrontSight
+    400038: Grenade
+    400040: Grip
+    400042: Joint
+    400044: Joint.1
+    400046: Joint.1.1
+    400048: Joint.10
+    400050: Joint.10.1
+    400052: Joint.11
+    400054: Joint.11.1
+    400056: Joint.12
+    400058: Joint.12.1
+    400060: Joint.13
+    400062: Joint.13.1
+    400064: Joint.14
+    400066: Joint.14.1
+    400068: Joint.15
+    400070: Joint.15.1
+    400072: Joint.16
+    400074: Joint.16.1
+    400076: Joint.17
+    400078: Joint.2
+    400080: Joint.2.1
+    400082: Joint.3
+    400084: Joint.3.1
+    400086: Joint.4
+    400088: Joint.4.1
+    400090: Joint.5
+    400092: Joint.5.1
+    400094: Joint.6
+    400096: Joint.6.1
+    400098: Joint.7
+    400100: Joint.7.1
+    400102: Joint.8
+    400104: Joint.8.1
+    400106: Joint.9
+    400108: Joint.9.1
+    400110: M203
+    400112: M203.1
+    400114: Magazine
+    400116: Rail
+    400118: RearSight
+    400120: RearSight.1
+    400122: Screw
+    400124: Screw.1
+    400126: Screw.2
+    400128: ScrewLarge
+    400130: Stock
+    2300000: Barrel
+    2300002: Body
+    2300004: Box.1.1
+    2300006: CockingHandle
+    2300008: Cylinder
+    2300010: Cylinder.1
+    2300012: Cylinder.2
+    2300014: Cylinder.3
+    2300016: Cylinder.4
+    2300018: FireSelector
+    2300020: FrontSight
+    2300022: Grenade
+    2300024: Grip
+    2300026: M203
+    2300028: M203.1
+    2300030: Magazine
+    2300032: Rail
+    2300034: RearSight
+    2300036: RearSight.1
+    2300038: Screw
+    2300040: Screw.1
+    2300042: Screw.2
+    2300044: ScrewLarge
+    2300046: Stock
+    3300000: Barrel
+    3300002: Body
+    3300004: Box.1.1
+    3300006: CockingHandle
+    3300008: Cylinder
+    3300010: Cylinder.1
+    3300012: Cylinder.2
+    3300014: Cylinder.3
+    3300016: Cylinder.4
+    3300018: FireSelector
+    3300020: FrontSight
+    3300022: Grenade
+    3300024: Grip
+    3300026: M203
+    3300028: M203.1
+    3300030: Magazine
+    3300032: Rail
+    3300034: RearSight
+    3300036: RearSight.1
+    3300038: Screw
+    3300040: Screw.1
+    3300042: Screw.2
+    3300044: ScrewLarge
+    3300046: Stock
     4300000: Box
     4300002: Box.1
     4300004: Body
@@ -29,6 +209,10 @@ ModelImporter:
     4300046: M203
     4300048: Box.1.1
     4300050: Grenade
+    7400000: Take 1
+    11100000: //RootNode
+    13700000: Box
+    13700002: Box.1
   materials:
     importMaterials: 1
     materialName: 3
@@ -36,7 +220,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
