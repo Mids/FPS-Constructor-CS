@@ -11,7 +11,7 @@ namespace ooparts.fpsctorcs
 		public float damage;
 		public float force;
 		public float fireRate;
-		public Fire fire;
+		public FireScript fire;
 		public GameObject tracer;
 		public Transform shootPos;
 		public float actualSpread;
