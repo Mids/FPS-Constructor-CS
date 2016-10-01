@@ -7,8 +7,8 @@ namespace ooparts.fpsctorcs
 	public class InputDB : MonoBehaviour
 	{
 		public static InputDB thisObj;
-		public static InputItem[] buttons = new InputItem[0];
-		public static InputItem[] axes = new InputItem[0];
+		public InputItem[] buttons;
+		public InputItem[] axes;
 		public static bool updated = false;
 
 		void Start()
@@ -19,15 +19,15 @@ namespace ooparts.fpsctorcs
 		public static bool GetButtonDown(string s)
 		{
 			/*if(!updated){
-				BroadcastMessage("UpdateInput");
+				thisObj.BroadcastMessage("UpdateInput");
 				updated = true;
 			}*/
-			for (int i = 0; i < buttons.Length; i++)
+			for (int i = 0; i < thisObj.buttons.Length; i++)
 			{
-				if (s == buttons[i].id)
+				if (s == thisObj.buttons[i].id)
 				{
-					buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
-					return buttons[i].down;
+					thisObj.buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
+					return thisObj.buttons[i].down;
 				}
 			}
 			return false;
@@ -36,15 +36,15 @@ namespace ooparts.fpsctorcs
 		public static bool GetButton(string s)
 		{
 			/*if(!updated){
-				BroadcastMessage("UpdateInput");
+				thisObj.BroadcastMessage("UpdateInput");
 				updated = true;
 			}*/
-			for (int i = 0; i < buttons.Length; i++)
+			for (int i = 0; i < thisObj.buttons.Length; i++)
 			{
-				if (s == buttons[i].id)
+				if (s == thisObj.buttons[i].id)
 				{
-					buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
-					return buttons[i].got;
+					thisObj.buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
+					return thisObj.buttons[i].got;
 				}
 			}
 			return false;
@@ -53,15 +53,15 @@ namespace ooparts.fpsctorcs
 		public static bool GetButtonUp(string s)
 		{
 			/*if(!updated){
-				BroadcastMessage("UpdateInput");
+				thisObj.BroadcastMessage("UpdateInput");
 				updated = true;
 			}*/
-			for (int i = 0; i < buttons.Length; i++)
+			for (int i = 0; i < thisObj.buttons.Length; i++)
 			{
-				if (s == buttons[i].id)
+				if (s == thisObj.buttons[i].id)
 				{
-					buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
-					return buttons[i].up;
+					thisObj.buttons[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
+					return thisObj.buttons[i].up;
 				}
 			}
 			return false;
@@ -70,15 +70,15 @@ namespace ooparts.fpsctorcs
 		public static float GetAxis(string s)
 		{
 			/*if(!updated){
-				BroadcastMessage("UpdateInput");
+				thisObj.BroadcastMessage("UpdateInput");
 				updated = true;
 			}*/
-			for (int i = 0; i < axes.Length; i++)
+			for (int i = 0; i < thisObj.axes.Length; i++)
 			{
-				if (s == axes[i].id)
+				if (s == thisObj.axes[i].id)
 				{
-					axes[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
-					return axes[i].axis;
+					thisObj.axes[i].BroadcastMessage("UpdateInput", SendMessageOptions.DontRequireReceiver);
+					return thisObj.axes[i].axis;
 				}
 			}
 			return 0;
@@ -86,9 +86,9 @@ namespace ooparts.fpsctorcs
 
 		public static void ResetInputAxes()
 		{
-			for (int i = 0; i < axes.Length; i++)
+			for (int i = 0; i < thisObj.axes.Length; i++)
 			{
-				axes[i].axis = 0;
+				thisObj.axes[i].axis = 0;
 			}
 		}
 

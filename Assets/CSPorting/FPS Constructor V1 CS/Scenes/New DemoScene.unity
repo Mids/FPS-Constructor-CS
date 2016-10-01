@@ -171,6 +171,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11448146, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
+      propertyPath: defaultFoldout
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
   m_IsPrefabParent: 0
@@ -253,21 +257,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &1114896445
+--- !u!1001 &1561880318
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: allowed.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: slotName.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 481792, guid: c74c842423d315c4d90d114d027e554d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -299,22 +295,6 @@ Prefab:
     - target: {fileID: 481792, guid: c74c842423d315c4d90d114d027e554d, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: slotName.Array.data[0]
-      value: Sidearm
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: slotName.Array.data[1]
-      value: Slot 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: slotName.Array.data[2]
-      value: Slot 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452556, guid: c74c842423d315c4d90d114d027e554d, type: 2}
-      propertyPath: slotName.Array.data[3]
-      value: Slot 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c74c842423d315c4d90d114d027e554d, type: 2}
