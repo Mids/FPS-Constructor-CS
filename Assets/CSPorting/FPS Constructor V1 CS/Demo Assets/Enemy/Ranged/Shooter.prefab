@@ -815,7 +815,7 @@ MonoBehaviour:
   damage: 5
   force: 40
   fireRate: 0.2
-  fire: {fileID: 0}
+  fire: {fileID: 11436500}
   tracer: {fileID: 120310}
   shootPos: {fileID: 444998}
   actualSpread: 0.07
@@ -836,7 +836,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 11436500}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129932}
