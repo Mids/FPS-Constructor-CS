@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class WayPoint : MonoBehaviour
+	public class Waypoint : MonoBehaviour
 	{
 		public Waypoint nextWaypoint;
 		public static Waypoint[] Waypoints;

@@ -4,7 +4,7 @@ using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class SmartCrossHair : MonoBehaviour
+	public class SmartCrosshair : MonoBehaviour
 	{
 		public float length1;
 		public float width1;

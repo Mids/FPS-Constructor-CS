@@ -109,7 +109,7 @@ namespace ooparts.fpsctorcs
 			string[] names;
 			ArrayList nameArray = new ArrayList();
 
-			foreach (weaponClasses w in WeaponInfo.weaponClasses.GetValues(typeof (WeaponInfo.weaponClasses)))
+			foreach (WeaponInfo.weaponClasses w in WeaponInfo.weaponClasses.GetValues(typeof (WeaponInfo.weaponClasses)))
 			{
 				nameArray.Add(w.ToString().Replace("_", " "));
 			}

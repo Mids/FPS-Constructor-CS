@@ -13,9 +13,9 @@ namespace ooparts.fpsctorcs
 		{
 			EditorGUIUtility.LookLikeInspector();
 			EditorGUILayout.BeginVertical();
-			foreach (weaponClasses w in weaponClasses.GetValues(typeof(weaponClasses)))
+			foreach (WeaponInfo.weaponClasses w in WeaponInfo.weaponClasses.GetValues(typeof(WeaponInfo.weaponClasses)))
 			{
-				if (w == weaponClasses.Null) break; // hide the Null Weapon				
+				if (w == WeaponInfo.weaponClasses.Null) break; // hide the Null Weapon				
 				Instance.weaponClassTextures[(int)w] = (Texture)EditorGUILayout.ObjectField(w.ToString().Replace("_", " "), Instance.weaponClassTextures[(int)w], typeof(Texture), false);
 			}
 			EditorGUILayout.EndVertical();

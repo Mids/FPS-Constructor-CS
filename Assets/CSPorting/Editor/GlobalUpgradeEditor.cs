@@ -21,7 +21,7 @@ namespace ooparts.fpsctorcs
 			EditorGUILayout.LabelField("Applicable Classes");
 			EditorGUILayout.Separator();
 
-			weaponClasses[] ws = (weaponClasses[])System.Enum.GetValues(typeof(weaponClasses));
+			WeaponInfo.weaponClasses[] ws = (WeaponInfo.weaponClasses[])System.Enum.GetValues(typeof(WeaponInfo.weaponClasses));
 
 			if (Instance.classesAllowed == null)
 				UpdateArray();
@@ -31,8 +31,8 @@ namespace ooparts.fpsctorcs
 
 			for (int i = 0; i < ws.Length; i++)
 			{
-				weaponClasses w = ws[i];
-				if (w == weaponClasses.Null) break;
+				WeaponInfo.weaponClasses w = ws[i];
+				if (w == WeaponInfo.weaponClasses.Null) break;
 				string className = w.ToString().Replace("_", " ");
 				Instance.classesAllowed[i] = EditorGUILayout.Toggle(className, Instance.classesAllowed[i]);
 			}
@@ -64,7 +64,7 @@ namespace ooparts.fpsctorcs
 		{
 			bool[] tempArray = Instance.classesAllowed;
 
-			Instance.classesAllowed = new bool[weaponClasses.GetValues(typeof(weaponClasses)).Length];
+			Instance.classesAllowed = new bool[WeaponInfo.weaponClasses.GetValues(typeof(WeaponInfo.weaponClasses)).Length];
 			for (int i = 0; i < tempArray.Length; i++)
 			{
 				Instance.classesAllowed[i] = tempArray[i];
