@@ -83,7 +83,7 @@ namespace ooparts.fpsctorcs
 		//Called when the user creates a set
 		public void CreateSet()
 		{
-			setArray[highestSet] = new GameObject().AddComponent<EffectSet>();
+			setArray[highestSet] = new EffectSet();
 			RebuildNameArray("Set " + highestSet);
 			selectedSet = highestSet;
 			highestSet++;

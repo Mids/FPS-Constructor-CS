@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using ooparts.fpsctorcs;
 
 namespace ooparts.fpsctorcs
 {
-	public class EffectSet : MonoBehaviour
+	[System.Serializable]
+	public class EffectSet : System.Object
 	{
 		public const int maxOfEach = 15; //You can increase this if desired
 		public int setID = 0;

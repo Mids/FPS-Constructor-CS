@@ -275,6 +275,7 @@ GameObject:
   - 33: {fileID: 846169843}
   - 64: {fileID: 846169842}
   - 23: {fileID: 846169841}
+  - 114: {fileID: 846169845}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -343,6 +344,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &846169845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846169840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc87f01a9d7d7a34bba8777a39709989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setIndex: 0
+  effectsManagerScript: {fileID: 0}
 --- !u!1 &1073404819 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013728849524, guid: 968e08d32b78fa44a9b53dcfe3b8cf82,
@@ -387,9 +401,50 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].bulletDecalsFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].dentDecalsFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].hitParticlesFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].bulletSoundsFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].collisionSoundsFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: setArray.Array.data[0].footstepSoundsFolded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013965768194, guid: c74c842423d315c4d90d114d027e554d,
+        type: 2}
+      propertyPath: effectsManager
+      value: 
+      objectReference: {fileID: 1561880319}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c74c842423d315c4d90d114d027e554d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1561880319 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012816892514, guid: c74c842423d315c4d90d114d027e554d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1561880318}
+  m_Script: {fileID: 11500000, guid: e0050425780115f4a8e58343552cb74e, type: 3}
 --- !u!1 &1838085988
 GameObject:
   m_ObjectHideFlags: 0
