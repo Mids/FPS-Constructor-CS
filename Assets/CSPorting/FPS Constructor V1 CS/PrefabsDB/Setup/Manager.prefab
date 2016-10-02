@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 440262}
   - 114: {fileID: 11487620}
-  - 114: {fileID: 11401730}
+  - 114: {fileID: 114000012059673022}
   m_Layer: 0
   m_Name: MouseY
   m_TagString: Untagged
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 484640}
   - 114: {fileID: 11480498}
-  - 114: {fileID: 11441574}
+  - 114: {fileID: 114000012476820952}
   m_Layer: 0
   m_Name: Horizontal
   m_TagString: Untagged
@@ -651,19 +651,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477298}
   m_RootOrder: 10
---- !u!114 &11401730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6579cde816f584645826db2bee38e7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: Mouse Y
-  input: {fileID: 11487620}
 --- !u!114 &11403072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1022,19 +1009,6 @@ MonoBehaviour:
   got: 0
   axis: 0
   id: SelectWeapon
---- !u!114 &11441574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6579cde816f584645826db2bee38e7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: Horizontal
-  input: {fileID: 11480498}
 --- !u!114 &11441744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1528,3 +1502,29 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173310}
   m_IsPrefabParent: 1
+--- !u!114 &114000012059673022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259942d39946b6d47bba492801672f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Mouse Y
+  input: {fileID: 11487620}
+--- !u!114 &114000012476820952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259942d39946b6d47bba492801672f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Horizontal
+  input: {fileID: 11480498}

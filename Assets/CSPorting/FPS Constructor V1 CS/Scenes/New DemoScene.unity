@@ -177,7 +177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11448146, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
       propertyPath: defaultFoldout
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474724, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
       propertyPath: m_RootOrder
@@ -195,6 +195,22 @@ Prefab:
       propertyPath: weapons.Array.data[0]
       value: 
       objectReference: {fileID: 1073404819}
+    - target: {fileID: 11496562, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
+      propertyPath: minimumY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496562, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
+      propertyPath: maximumY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496562, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
+      propertyPath: axes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495272, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
+      propertyPath: axes
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5518cb94adb346c4783ffe94e8d7532b, type: 2}
   m_IsPrefabParent: 0
