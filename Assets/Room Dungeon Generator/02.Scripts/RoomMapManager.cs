@@ -26,10 +26,10 @@ namespace ooparts.dungen
 
 		void Update()
 		{
-			if (Input.GetKeyDown(KeyCode.Space))
-			{
-				RestartGame();
-			}
+//			if (Input.GetKeyDown(KeyCode.Space))
+//			{
+//				RestartGame();
+//			}
 		}
 
 		private void BeginGame()

@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +54,7 @@ MonoBehaviour:
     floor: {fileID: 0}
     wall: {fileID: 0}
   PlayerPrefab: {fileID: 107172, guid: 10c14d2e748dab942a46f8401efd4ae1, type: 2}
-  MonsterPrefab: {fileID: 154156, guid: acde751c4c58d3b499304eeb64a637c5, type: 2}
+  MonsterPrefab: {fileID: 119654, guid: c0cca556e9b08694fb8d452223be7d2f, type: 2}
   MonsterCount: 5
 --- !u!1001 &100100000
 Prefab:

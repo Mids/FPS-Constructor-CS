@@ -24,7 +24,7 @@ namespace ooparts.dungen
 
 		private Map _map;
 
-		public GameObject PlayerPrefab;
+		public GameObject PlayerPrefab;// put object instead of prefab (only in this project)
 
 		public GameObject MonsterPrefab;
 		public int MonsterCount;
@@ -169,10 +169,10 @@ namespace ooparts.dungen
 
 		public IEnumerator CreatePlayer()
 		{
-			GameObject player = Instantiate((PlayerPrefab));
-			player.name = "Player";
-			player.transform.parent = transform.parent;
-			player.transform.localPosition = transform.localPosition;
+			GameObject player = GameObject.FindGameObjectWithTag("Player"); // put object instead of prefab (only in this project)
+//			player.name = "Player";
+//			player.transform.parent = transform.parent;
+			player.transform.localPosition = transform.localPosition + Vector3.up;
 			yield return null;
 		}
 	}
