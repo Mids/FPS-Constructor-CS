@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &170384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443492}
+  - 114: {fileID: 11452788}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Map
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443492
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11452788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298edf53b39bbe141b1de7b46c6e4ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomPrefab: {fileID: 11430952, guid: b3b927ea3b312d04f8f06a707159fa41, type: 2}
+  RoomCount: 15
+  RoomSettings:
+  - floor: {fileID: 2100000, guid: 293177df221039d4f91f7b41b2bd2691, type: 2}
+    wall: {fileID: 2100000, guid: 16e983eb6a0df1b44bd328d73d17b047, type: 2}
+  - floor: {fileID: 2100000, guid: 8ba58f6546738394f90ac8bbc13497d7, type: 2}
+    wall: {fileID: 2100000, guid: 1fdfd93b9104acf439d358356d774319, type: 2}
+  - floor: {fileID: 2100000, guid: d50d3f5fd611bd44bbf945eec6ab9cd3, type: 2}
+    wall: {fileID: 2100000, guid: f9def51f619aa6e4bac5e36283d349af, type: 2}
+  - floor: {fileID: 2100000, guid: 41f301a339d8a7445b7bf7252cd0d3db, type: 2}
+    wall: {fileID: 2100000, guid: 27a72d111843d134091b31e1eb766267, type: 2}
+  MapSize:
+    x: 100
+    z: 100
+  RoomSize:
+    Min: 9
+    Max: 17
+  GenerationStepDelay: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MapSize.Min
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MapSize.Max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoomSize.Min
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoomSize.Max
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MapSize.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MapSize.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoomCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoomPrefab
+      value: 
+      objectReference: {fileID: 11430952, guid: b3b927ea3b312d04f8f06a707159fa41,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[0].floor
+      value: 
+      objectReference: {fileID: 2100000, guid: 293177df221039d4f91f7b41b2bd2691, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[0].wall
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e983eb6a0df1b44bd328d73d17b047, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[1].floor
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ba58f6546738394f90ac8bbc13497d7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[1].wall
+      value: 
+      objectReference: {fileID: 2100000, guid: 1fdfd93b9104acf439d358356d774319, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[2].floor
+      value: 
+      objectReference: {fileID: 2100000, guid: d50d3f5fd611bd44bbf945eec6ab9cd3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[2].wall
+      value: 
+      objectReference: {fileID: 2100000, guid: f9def51f619aa6e4bac5e36283d349af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[3].floor
+      value: 
+      objectReference: {fileID: 2100000, guid: 41f301a339d8a7445b7bf7252cd0d3db, type: 2}
+    - target: {fileID: 0}
+      propertyPath: RoomSettings.Array.data[3].wall
+      value: 
+      objectReference: {fileID: 2100000, guid: 27a72d111843d134091b31e1eb766267, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 170384}
+  m_IsPrefabParent: 1
