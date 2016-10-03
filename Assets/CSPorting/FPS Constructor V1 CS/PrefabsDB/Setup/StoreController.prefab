@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0535e901b2a23f540a621ec89f673793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotName: []
-  allowed: 
+  slotName:
+  - Sidearm
+  allowed: 01000000
 --- !u!114 &11445894
 MonoBehaviour:
   m_ObjectHideFlags: 1
