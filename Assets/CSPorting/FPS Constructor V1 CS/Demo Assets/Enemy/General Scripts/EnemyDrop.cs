@@ -6,12 +6,12 @@ namespace ooparts.fpsctorcs
 {
 	public class EnemyDrop : MonoBehaviour
 	{
-		Transform drops;
-		int min = 0;
-		int max = 5;
-		float force = 5;
+		public Transform drops;
+		public int min = 0;
+		public int max = 5;
+		public float force = 5;
 
-		void Die()
+		public void Die()
 		{
 			int amt = Random.Range(min, max);
 			int i = 0;

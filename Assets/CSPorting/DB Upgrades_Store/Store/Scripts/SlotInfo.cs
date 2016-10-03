@@ -19,11 +19,11 @@ namespace ooparts.fpsctorcs
 		{
 			if (b)
 			{
-				allowed[slot] = allowed[slot] | 1 << int.Parse(wc.ToString());
+				allowed[slot] = allowed[slot] | 1 << (int)wc;
 			}
 			else
 			{
-				allowed[slot] = allowed[slot] & ~(1 << int.Parse(wc.ToString()));
+				allowed[slot] = allowed[slot] & ~(1 << (int)wc);
 			}
 		}
 
@@ -31,7 +31,7 @@ namespace ooparts.fpsctorcs
 		public bool isWCAllowed(int slot, WeaponInfo.weaponClasses wc)
 		{
 			bool ret = false;
-			if ((allowed[slot] & 1 << int.Parse(wc.ToString())) != 0)
+			if ((allowed[slot] & 1 << (int)wc) != 0)
 				ret = true;
 			return ret;
 		}
@@ -39,7 +39,7 @@ namespace ooparts.fpsctorcs
 		public bool isWeaponAllowed(int slot, WeaponInfo w)
 		{
 			bool ret = false;
-			if ((allowed[slot] & 1 << int.Parse(w.weaponClass.ToString())) != 0)
+			if ((allowed[slot] & 1 << (int)w.weaponClass) != 0)
 				ret = true;
 			return ret;
 		}
