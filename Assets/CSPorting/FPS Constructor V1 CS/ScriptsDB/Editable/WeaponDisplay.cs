@@ -29,6 +29,7 @@ namespace ooparts.fpsctorcs
 		{
 			if (display && Time.time != 0.0f)
 			{
+				GUI.skin.box.fontSize = 15;
 				if (Time.time > endTime) display = false;
 				GUI.Box(new Rect(Screen.width - 490, Screen.height - 160, 270, 150), WeaponInfo.gunName + "\n" + WeaponInfo.gunDescription + "\n");
 			}

@@ -90,6 +90,7 @@ namespace ooparts.fpsctorcs
 				clipDisplay2 = "";
 			}
 
+			GUI.skin.box.fontSize = 25;
 			//This is where you'll want to edit to make your own ammo display
 			if (gunScriptSecondary != null)
 			{

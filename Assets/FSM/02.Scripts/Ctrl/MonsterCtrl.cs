@@ -187,6 +187,7 @@ public class MonsterCtrl : MonoBehaviour, Attackable
 
 	public void Die()
 	{
+		_player.BroadcastMessage("GainEXP", 20, SendMessageOptions.DontRequireReceiver);
 		_isDead = true;
 		StopAllCoroutines();
 		StartCoroutine(CoDie());

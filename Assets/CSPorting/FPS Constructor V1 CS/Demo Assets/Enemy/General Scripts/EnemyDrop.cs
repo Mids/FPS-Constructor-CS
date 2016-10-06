@@ -15,11 +15,11 @@ namespace ooparts.fpsctorcs
 		{
 			int amt = Random.Range(min, max);
 			int i = 0;
-			Transform t;
+			GameObject t;
 			Vector3 dir;
 			while (i < amt)
 			{
-				t = ((GameObject) Instantiate(drops, transform.position + new Vector3(0, 0.5f, 0), transform.rotation)).transform;
+				t = ((GameObject) Instantiate(drops, transform.position + new Vector3(0, 0.5f, 0), transform.rotation));
 
 				dir = Random.insideUnitSphere * force;
 				t.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);

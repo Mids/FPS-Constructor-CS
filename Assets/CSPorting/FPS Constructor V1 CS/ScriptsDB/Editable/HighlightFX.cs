@@ -25,6 +25,7 @@ namespace ooparts.fpsctorcs
 			GUI.skin.box.wordWrap = true;
 			if (selected && !DBStoreController.inStore)
 			{
+				GUI.skin.box.fontSize = 15;
 				string s = "(Tab) to Use";
 
 				Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
