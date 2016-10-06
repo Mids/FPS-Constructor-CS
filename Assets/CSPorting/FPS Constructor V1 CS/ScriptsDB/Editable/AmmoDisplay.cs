@@ -100,7 +100,7 @@ namespace ooparts.fpsctorcs
 			else
 			{
 				//Otherwise just display the main weapon's ammo
-				GUI.Box(new Rect(Screen.width - 110, Screen.height - 30, 100, 20), "Ammo: " + Mathf.Round(gunScript.ammoLeft) + clipDisplay);
+				GUI.Box(new Rect(Screen.width - 210, Screen.height - 50, 200, 40), "Ammo: " + Mathf.Round(gunScript.ammoLeft) + clipDisplay);
 			}
 		}
 

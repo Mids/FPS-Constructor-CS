@@ -8,10 +8,12 @@ public class MonsterCtrl : MonoBehaviour, Attackable
     private bool _isDead = false;
     private bool _unControllable = false;
 
+	[HideInInspector]
     public GameObject _player;
     private Transform _playerTransform;
     private Transform _monsterTransform;
-    private Vector3 _checkPoint = Vector3.zero;
+	public Vector3 _startPosition;
+    public Vector3 _checkPoint;
 
     private Animator _animator;
 	private NavMeshAgent _nav;
@@ -36,13 +38,11 @@ public class MonsterCtrl : MonoBehaviour, Attackable
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _monsterTransform = GetComponent<Transform>();
-
-        Debug.Log(GameObject.FindWithTag("Player"));
-
+		
         // Get components
         _animator = GetComponent<Animator>();
         _weaponCollider = _weapon.GetComponent<Collider>();
-	    _nav = GetComponent<NavMeshAgent>();
+//	    _nav = GetComponent<NavMeshAgent>();
 
         ChangeState(StateManager.GetState(StateManager.State.Patrol));
         StartCoroutine(Run());
@@ -66,7 +66,7 @@ public class MonsterCtrl : MonoBehaviour, Attackable
 		double distance = Vector3.Distance(_playerTransform.position, _monsterTransform.position);
 	    if (distance < TraceRange)
 		{
-			Debug.DrawRay(transform.position, playerDirection * SightDistance, Color.red);
+			Debug.DrawLine(transform.position, _playerTransform.position, Color.red);
 			_checkPoint = _playerTransform.position;
 			return true;
 		}
@@ -78,12 +78,12 @@ public class MonsterCtrl : MonoBehaviour, Attackable
 			Physics.Raycast(transform.position + transform.up, playerDirection, out hit, SightDistance) &&
 			hit.collider.gameObject.tag.Equals("Player"))                   // No obstacle 
 		{
-			Debug.DrawRay(transform.position, playerDirection * SightDistance, Color.red);
+			Debug.DrawLine(transform.position, _playerTransform.position, Color.red);
 			_checkPoint = _playerTransform.position;
 			return true;
 		}
 
-		Debug.DrawRay(transform.position, playerDirection * SightDistance, Color.green);
+//		Debug.DrawLine(transform.position, _playerTransform.position, Color.green);
 		return false;
     }
 
@@ -104,25 +104,27 @@ public class MonsterCtrl : MonoBehaviour, Attackable
         if (distanceVector.magnitude > 0.5f)
         {
             _animator.SetBool("IsMoving", true);
-			_nav.destination = _checkPoint;
+//			_nav.destination = _checkPoint;
+			transform.LookAt(_playerTransform);
+	        transform.position += Time.deltaTime * Speed * transform.forward;
         }
         else
         {
             _animator.SetBool("IsMoving", false);
-            _checkPoint = Vector3.zero;
+			transform.LookAt(_playerTransform);
+			_checkPoint = _startPosition;
         }
     }
 
     // Attack player
     public void Attack()
-    {
-        if (IsMovable())
+	{
+		if (IsMovable())
         {
-            _monsterTransform.LookAt(_playerTransform);
             SetTrigger("Attack");
             CallFreeze();
-        }
-    }
+		}
+	}
 
     public void SetWeaponCollider(int oneIsTrue)
     {
@@ -133,6 +135,11 @@ public class MonsterCtrl : MonoBehaviour, Attackable
     {
         _myState = state;
     }
+
+	public void GotHit()
+	{
+		GotHit(0);
+	}
 
     public void GotHit(int damage)
     {
@@ -171,4 +178,24 @@ public class MonsterCtrl : MonoBehaviour, Attackable
         SetWeaponCollider(0);
         _animator.SetTrigger(trigger);
     }
+
+	public void SetStartingPoint()
+	{
+		_startPosition = transform.position;
+		_checkPoint = _startPosition;
+	}
+
+	public void Die()
+	{
+		_isDead = true;
+		StopAllCoroutines();
+		StartCoroutine(CoDie());
+	}
+
+	private IEnumerator CoDie()
+	{
+		SetTrigger("Die");
+		yield return new WaitForSeconds(3f);
+		Destroy(gameObject);
+	}
 }

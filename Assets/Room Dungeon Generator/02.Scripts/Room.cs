@@ -162,6 +162,7 @@ namespace ooparts.dungen
 				newMonster.name = "Monster " + (i + 1);
 				newMonster.transform.parent = _monstersObject.transform;
 				newMonster.transform.localPosition = new Vector3(i / 2f, 0f, i % 2f);
+				newMonster.GetComponent<MonsterCtrl>().SetStartingPoint();
 				Monsters[i] = newMonster;
 			}
 			yield return null;

@@ -19,7 +19,7 @@ namespace ooparts.fpsctorcs
 			Vector3 dir;
 			while (i < amt)
 			{
-				t = ((GameObject) Instantiate(drops, transform.position + new Vector3(0, 2, 0), transform.rotation)).transform;
+				t = ((GameObject) Instantiate(drops, transform.position + new Vector3(0, 0.5f, 0), transform.rotation)).transform;
 
 				dir = Random.insideUnitSphere * force;
 				t.GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);

@@ -6,7 +6,8 @@ namespace ooparts.fpsctorcs
 {
 	public class PlayerHealth : MonoBehaviour
 	{
-		[HideInInspector] public float health = 100;
+		[HideInInspector]
+		public float health = 100;
 		public float maxHealth = 100;
 		public float hitKickBack;
 		public float hitKickBackX;
@@ -86,7 +87,7 @@ namespace ooparts.fpsctorcs
 				return;
 
 			float tempFloat;
-			tempFloat = (float) Arr[0];
+			tempFloat = (float)Arr[0];
 			health = Mathf.Clamp(health - tempFloat, 0, health);
 			HitEffects(tempFloat);
 
@@ -157,6 +158,20 @@ namespace ooparts.fpsctorcs
 			BroadcastMessage("Freeze");
 			LockCursor.HardUnlock();
 			dead = true;
+		}
+
+		public void OnTriggerEnter(Collider other)
+		{
+			if (other.gameObject.name != "Quad")
+			{
+				Debug.Log(other.gameObject.name);
+
+			}
+			if (other.gameObject.tag.Equals("MONSTERWEAPON"))
+			{
+				ApplyDamage(10);
+			}
+
 		}
 	}
 }

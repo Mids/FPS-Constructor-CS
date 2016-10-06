@@ -19,6 +19,7 @@ namespace ooparts.fpsctorcs
 
 		public void ApplyDamage(Object[] Arr)
 		{
+			Debug.Log("1 : "+Arr[1].ToString() + ", 2 : " + Arr[0].ToString());
 			//Info array contains damage and value of fromPlayer bool ( true if the player caused the damage)
 			//Find the player if we haven't
 			if (Arr[1] == true)
@@ -56,6 +57,7 @@ namespace ooparts.fpsctorcs
 
 		public void ApplyDamagePlayer(float damage)
 		{
+			Debug.Log("adp : " + damage);
 			//Info array contains damage and value of fromPlayer bool ( true if the player caused the damage)
 			//Find the player if we haven't
 			if (!playerObject)
@@ -81,6 +83,8 @@ namespace ooparts.fpsctorcs
 
 				Invoke("DelayedDetonate", effectDelay);
 			}
+
+			BroadcastMessage("GotHit", SendMessageOptions.DontRequireReceiver);
 		}
 
 		public void ApplyDamage(float damage)
@@ -136,7 +140,7 @@ namespace ooparts.fpsctorcs
 				emitter.transform.parent = null;
 			}
 			BroadcastMessage("Die", SendMessageOptions.DontRequireReceiver);
-			Destroy(gameObject);
+//			Destroy(gameObject);
 		}
 	}
 }
