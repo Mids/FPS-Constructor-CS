@@ -16,7 +16,7 @@ namespace ooparts.fpsctorcs
 		void OnGUI()
 		{
 			GUI.skin.box.fontSize = 25;
-			GUI.Box(new Rect(10, Screen.height - 50, 200, 40), "Health: " + Mathf.Round(playerHealth.health));
+			GUI.Box(new Rect(10, Screen.height - 50, 250, 40), "Health: " + Mathf.Round(playerHealth.health) + " / " + Mathf.Round(playerHealth.maxHealth));
 		}
 	}
 }
