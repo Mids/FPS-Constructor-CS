@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e219c2345d29db4ca5e7a5ab0eb52b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drops: {fileID: 428122, guid: 303401b3a8e2add4caa7cf4f5663d8b7, type: 2}
+  drops: {fileID: 147268, guid: 303401b3a8e2add4caa7cf4f5663d8b7, type: 2}
   min: 0
   max: 2
   force: 5
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e219c2345d29db4ca5e7a5ab0eb52b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drops: {fileID: 403674, guid: a9f196fbb4948ff4c85d6b236af11186, type: 2}
+  drops: {fileID: 181942, guid: a9f196fbb4948ff4c85d6b236af11186, type: 2}
   min: 0
   max: 2
   force: 5

@@ -57,7 +57,6 @@ namespace ooparts.fpsctorcs
 
 		public void ApplyDamagePlayer(float damage)
 		{
-			Debug.Log("adp : " + damage);
 			//Info array contains damage and value of fromPlayer bool ( true if the player caused the damage)
 			//Find the player if we haven't
 			if (!playerObject)

@@ -162,11 +162,6 @@ namespace ooparts.fpsctorcs
 
 		public void OnTriggerEnter(Collider other)
 		{
-			if (other.gameObject.name != "Quad")
-			{
-				Debug.Log(other.gameObject.name);
-
-			}
 			if (other.gameObject.tag.Equals("MONSTERWEAPON"))
 			{
 				ApplyDamage(10);
