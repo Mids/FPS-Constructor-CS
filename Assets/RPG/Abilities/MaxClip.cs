@@ -5,10 +5,14 @@ using ooparts.fpsctorcs;
 
 public class MaxClip : Ability
 {
-	GunScript weapon = PlayerWeapons.PW.weapons[PlayerWeapons.PW.selectedWeapon].GetComponent<GunScript>(); //currently equipped weapon	
+	private GunScript weapon;
 
 	public override void Enhance()
 	{
-		weapon.maxClips++;
+		if (weapon == null)
+		{
+			weapon = PlayerWeapons.PW.weapons[PlayerWeapons.PW.selectedWeapon].GetComponent<GunScript>(); //currently equipped weapon	
+		}
+		weapon.maxClips+= weapon.ammoPerClip;
 	}
 }

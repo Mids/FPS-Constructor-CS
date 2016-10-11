@@ -3059,7 +3059,8 @@ Transform:
 --- !u!136 &816569814
 CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 136000010104688692, guid: 5518cb94adb346c4783ffe94e8d7532b,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 816569801}
   m_Material: {fileID: 0}
@@ -3072,7 +3073,8 @@ CapsuleCollider:
 --- !u!114 &816569815
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114000011097948868, guid: 5518cb94adb346c4783ffe94e8d7532b,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 816569801}
   m_Enabled: 1
@@ -3082,6 +3084,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 1
   Exp: 0
+  PossibleAbilities:
+  - {fileID: 114000013699672670, guid: 14293f0be4433e145892b79803142e60, type: 2}
+  - {fileID: 114000012936386996, guid: ef106fe9e56b95144bc23425a696f8e1, type: 2}
+  dummy: 1
 --- !u!1 &849661915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,7 +3982,7 @@ MonoBehaviour:
   firePropertiesFoldout: 0
   accuracyFoldout: 0
   altFireFoldout: 0
-  ammoReloadFoldout: 0
+  ammoReloadFoldout: 1
   audioVisualFoldout: 0
   swayStartTime: 0
   swayRate: {x: 0, y: 0}
