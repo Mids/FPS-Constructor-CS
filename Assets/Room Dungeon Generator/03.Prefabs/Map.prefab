@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,14 +43,14 @@ MonoBehaviour:
   RoomPrefab: {fileID: 11430952, guid: b3b927ea3b312d04f8f06a707159fa41, type: 2}
   RoomCount: 15
   RoomSettings:
-  - floor: {fileID: 2100000, guid: 293177df221039d4f91f7b41b2bd2691, type: 2}
-    wall: {fileID: 2100000, guid: 16e983eb6a0df1b44bd328d73d17b047, type: 2}
-  - floor: {fileID: 2100000, guid: 8ba58f6546738394f90ac8bbc13497d7, type: 2}
-    wall: {fileID: 2100000, guid: 1fdfd93b9104acf439d358356d774319, type: 2}
-  - floor: {fileID: 2100000, guid: d50d3f5fd611bd44bbf945eec6ab9cd3, type: 2}
-    wall: {fileID: 2100000, guid: f9def51f619aa6e4bac5e36283d349af, type: 2}
-  - floor: {fileID: 2100000, guid: 41f301a339d8a7445b7bf7252cd0d3db, type: 2}
-    wall: {fileID: 2100000, guid: 27a72d111843d134091b31e1eb766267, type: 2}
+  - floor: {fileID: 2100000, guid: 037c10e8a9c9c5e47a726216732d17d8, type: 2}
+    wall: {fileID: 2100000, guid: 96dae2f09f54868408f904428548d00f, type: 2}
+  - floor: {fileID: 2100000, guid: f1a8571c3ef3f4d46bbdfb8b2ecdec74, type: 2}
+    wall: {fileID: 2100000, guid: b7efee39c51e1c94f9e535a8e6edb43b, type: 2}
+  - floor: {fileID: 2100000, guid: 59cf63250acfc334288c35253c616d40, type: 2}
+    wall: {fileID: 2100000, guid: 1e23b2d236a58f040968acd05c361bce, type: 2}
+  - floor: {fileID: 2100000, guid: b2394c0eb4527fe489f9cf53d290baeb, type: 2}
+    wall: {fileID: 2100000, guid: ad85a24c76e86cc45bd1040a4d583d90, type: 2}
   MapSize:
     x: 100
     z: 100
